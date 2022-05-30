@@ -1,0 +1,21 @@
+Financial Transactions:
+
+citizen -> bank account
+connectors: [forename, surname, homeAddress, dateOfBirth]
+
+bank account -> bank cards
+connectors: [bankAccountId, accountNumber, bank]
+
+epos transactions -> bank cards
+connectors: [bankCardNumber? , payeeAccount?]
+
+epos terminals -> epos transactions
+connectors: [eposId?]
+
+atm point -> atm transactions
+connectors: [atmId]
+
+atm transaction -> bank card:
+connector: [cardNumber?, accountNumber?]
+
+
