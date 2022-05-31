@@ -1,6 +1,5 @@
 import AppManager from './Website/App-Manager';
 import './CSS/App.css';
-import SimpleGrid from './Website/SimpleGrid';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 
@@ -8,7 +7,6 @@ function App() {
   return (
     <div className="App">
       <AppManager/>
-      {/* <SimpleGrid/> */}
       
     </div>
   );

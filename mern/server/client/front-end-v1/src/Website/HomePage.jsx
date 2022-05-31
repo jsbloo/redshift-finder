@@ -1,6 +1,5 @@
 import React from "react";
 import Navigation from "./Navigation";
-import axios from './axios'
 import { useState, useEffect } from 'react';
 
 
