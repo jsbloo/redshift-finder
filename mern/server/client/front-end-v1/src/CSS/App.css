@@ -2,46 +2,35 @@
   text-align: center;
 }
 
-.homepage{
+.homepage {
   background-color: aqua;
   height: 100vh;
   width: 100vw;
-  
 }
 /* body{
 
   background-color: aqua;
 } */
 
-.btn1{
+.btn1 {
   position: flex;
   justify-content: space-between;
-
 }
 
-
-
-.container {align-content:  space-between ;}
+.container {
+  align-content: space-between;
+}
 
 .about {
   border-style: double;
-
 }
 
-
-.finance{
+.finance {
   border-style: double;
-
 }
 
-
-
-.friends{
+.friends {
   border-style: double;
-
 }
 
-
-
-  
-
+/* ff */
