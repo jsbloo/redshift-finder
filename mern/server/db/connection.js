@@ -1,7 +1,6 @@
-const { builtinModules } = require('module');
 const mongoose = require('mongoose');
 
-const URI = 'mongodb+srv://admin:2gjPbKkGq6CE3ka@cluster0.o7fedgk.mongodb.net/redshift-db?retryWrites=true&w=majority';
+const URI = 'mongodb+srv://admin:2gjPbKkGq6CE3ka@redshift-db.doa1vwz.mongodb.net/citizen-db?retryWrites=true&w=majority';
 
 //we should consider, nested schemas -josh
 
