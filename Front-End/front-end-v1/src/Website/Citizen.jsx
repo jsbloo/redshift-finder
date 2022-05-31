@@ -1,0 +1,31 @@
+import Navigation from "./Navigation";
+
+const Citizen = () => {
+    return (
+        <>
+            <h1>Citizen Page</h1>
+            <Navigation />
+            <h3>Name of person</h3>
+            <div className="about">
+                <h5>Biographical information</h5>
+            </div>
+
+            <br />
+            
+            <div className="finance">
+                <h5>Financial Transactions</h5>
+            </div>
+
+            <br />
+            
+            <div className="friends">
+                <h5>Asscociates</h5>
+            </div>
+
+
+
+        </>
+    );
+}
+
+export default Citizen;
