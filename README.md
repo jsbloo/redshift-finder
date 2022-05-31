@@ -37,7 +37,6 @@ const person = {
         businessAddress: ""
     },
     mobile: {
-        businessAddress: "",
         network: "",
         phoneId: ""
     },
