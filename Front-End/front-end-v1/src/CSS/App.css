@@ -21,9 +21,25 @@
 
 
 
+.container {align-content:  space-between ;}
+
+.about {
+  border-style: double;
+
+}
+
+
+.finance{
+  border-style: double;
+
+}
 
 
 
+.friends{
+  border-style: double;
+
+}
 
 
 
