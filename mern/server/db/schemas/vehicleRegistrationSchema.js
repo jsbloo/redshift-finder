@@ -1,5 +1,8 @@
 const mongoose = require("mongoose");
 
+
+const collectionName = "vehicleRegistration10k";
+
 const vehicleRegistrationSchema = new mongoose.Schema({
     bankAccountId: String,
     accountNumber: String,
@@ -10,7 +13,7 @@ const vehicleRegistrationSchema = new mongoose.Schema({
     homeAddress: String
 },
     {
-        collection: 'peoplebankaccount10k'
+        collection: collectionName
     });
 
-module.exports = mongoose.model("peoplebankaccount10k", vehicleRegistrationSchema);
+module.exports = mongoose.model(collectionName, vehicleRegistrationSchema);
