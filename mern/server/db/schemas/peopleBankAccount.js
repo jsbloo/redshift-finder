@@ -14,3 +14,4 @@ const peopleBankAccount = new mongoose.Schema({
     });
 
 module.exports = mongoose.model(peopleBankAccount.collection, peopleBankAccount);
+
