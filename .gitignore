@@ -31,7 +31,6 @@ coverage
 
 # Bower dependency directory (https://bower.io/)
 bower_components
-git
 # node-waf configuration
 .lock-wscript
 
@@ -130,4 +129,3 @@ dist
 .pnp.*
 #  DS ignore
 .DS_Store
-# 
