@@ -4,7 +4,7 @@ const app = express();
 const mongoose = require('mongoose');
 var cors = require('cors');
 
-mongoose.connect('mongodb+srv://admin:2gjPbKkGq6CE3ka@redshift-db.doa1vwz.mongodb.net/citizen-db?retryWrites=true&w=majority', {useNewUrlParser: true});
+mongoose.connect('mongodb+srv://admin:2gjPbKkGq6CE3ka@redshift-db.doa1vwz.mongodb.net/citizen-db?retryWrites=true&w=majority', { useNewUrlParser: true });
 const db = mongoose.connection;
 
 db.on('error', (error) => console.error(error));
@@ -18,7 +18,6 @@ app.use('/citizens', citizensRouter.citizenRoutes);
 
 const personRouter = require("./routes/person");
 app.use("/persons", personRouter.personRoutes);
-
 app.listen(3001, () => console.log("Server Started"));
 
 
