@@ -2,7 +2,7 @@ const express = require('express');
 const { append } = require('express/lib/response');
 const app = express();
 const mongoose = require('mongoose');
-var cors = require('cors');
+const cors = require('cors');
 
 mongoose.connect('mongodb+srv://admin:2gjPbKkGq6CE3ka@redshift-db.doa1vwz.mongodb.net/citizen-db?retryWrites=true&w=majority', { useNewUrlParser: true });
 const db = mongoose.connection;
