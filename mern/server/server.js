@@ -20,4 +20,3 @@ const personRouter = require("./routes/person");
 app.use("/persons", personRouter.personRoutes);
 app.listen(3001, () => console.log("Server Started"));
 
-
