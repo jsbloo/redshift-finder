@@ -12,6 +12,6 @@ const citizenSchema = new Schema({
 }, 
     { 
         collection : 'citizen10k'
-});
+    });
 
 module.exports = mongoose.model('citizen10k', citizenSchema);
