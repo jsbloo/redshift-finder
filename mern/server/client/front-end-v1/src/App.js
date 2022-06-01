@@ -1,6 +1,7 @@
 import AppManager from './Website/App-Manager';
 import './CSS/App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Axios from 'axios';
 
 
 function App() {
