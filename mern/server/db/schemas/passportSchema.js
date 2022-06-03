@@ -1,20 +1,21 @@
 const mongoose = require ('mongoose');
 const Schema = mongoose.Schema;
+const collection = 'passport'
 
 const passportSchema = new Schema({
-    passportNumber : String,
-    surname : String,
-    givenName : String,
-    nationality : String,
-    dob : String,
-    sex : String,
-    placeOfBirth : String,
-    issuingCountry : String,
-    dateOfIssue : String,
-    dateOfExpiry : String
+    dateOfExpiry: String,
+    placeOfBirth: String,
+    sex: String,
+    nationality: String,
+    issuingCountry: String,
+    dob: String,
+    surname: String,
+    passportNumber: String,
+    givenName: String,
+    dateOfIssue: String
 }, 
     { 
-        collection : 'passport10k'
+        collection : collection
 });
 
-module.exports = mongoose.model('passport10k', passportSchema);
+module.exports = mongoose.model(collection, passportSchema);
