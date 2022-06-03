@@ -24,7 +24,7 @@ const getCitizenById = async (req,res,next) => {
 }
 
 //getById
-citizenRoutes.get('/:id', getCitizenById, (req, res) => {
+citizenRoutes.get('/getById/:id', getCitizenById, (req, res) => {
     res.send(res.citizen);
 });
 
