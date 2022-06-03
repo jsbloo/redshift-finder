@@ -1,65 +1,61 @@
 const express = require("express");
 const personRoutes = express.Router();
-const CitizenSchema = require("../db/schemas/citizenSchema");
-const AddressSchema = require("../db/schemas/addressSchema");
+const PersonSchema = require("../db/schemas/personSchema");
 
-
-const getPersonsWithAddrAndPassport = async (req, res, next) => {
-    let person = { //we need an array of persons
-        citizenID: "",
-        forenames: "",
-        surname: "",
-        homeAddress: "",
-        dateOfBirth: "",
-        placeOfBirth: "",
-        gender: "",
-        area: "",
-        postcode: ""
-    };
+//middleware
+const getPersonById = async (req,res,next) => {
+    let person;
     try {
-
-        const citizens = await CitizenSchema.find({
-            forenames: req.params.fname,
-            surname: req.params.sname,
-            dateOfBirth: req.params.dob
+        person = await PersonSchema.find({
+            id : req.params.id
         });
 
-        for (const cit of citizens) {
-            person.citizenID = cit.citizenID;
-            person.forenames = cit.forenames;
-            person.surname = cit.surname;
-            person.homeAddress = cit.homeAddress;
-            person.dateOfBirth = cit.dateOfBirth;
-            person.placeOfBirth = cit.placeOfBirth;
-            person.gender = cit.sex;
-
-            const citAddr = await AddressSchema.find({
-                homeAddress: cit.homeAddress
-            });
-
-            if (citAddr.length > 1) {
-                throw new Error("Multiple persons of same name and DOB at same address");
-            }
-
-            person.area = citAddr[0].area;
-            person.postcode = citAddr[0].postcode;
+        console.log('byId'+person);
+        
+        if(!person[0]){
+            return res.status(404).json({ message: "Cannot find person"});
         }
-
     } catch (e) {
-        return res.status(500).json({
-            message: e.message
-        });
+        return res.status(500).json({ message: e.message});
     }
 
-    console.log(person);
     res.person = person;
     next();
 }
 
-//getByFnSnDob
-personRoutes.get('/:fname/:sname/:dob', getPersonsWithAddrAndPassport, (req, res) => {
+const getPersonByNameAndPob = async (req,res,next) => {
+    let person;
+    console.log(req.params);
+    try{
+        person = await PersonSchema.find({
+            givenName: (req.params.givenName),
+            lastName: req.params.lastName,
+            placeOfBirth: req.params.placeOfBirth,
+            dob: {$regex: req.params.birthYear}
+        });
+
+        console.log(person);
+
+        if(!person[0]){
+            return res.status(404).json({ message: "Cannot find person"});
+        }
+    } catch(e){
+        return res.status(500).json({message: e.message})
+    }
+
+    res.person = person;
+    next();
+}
+
+//getById
+personRoutes.get('/getById/:id', getPersonById, (req, res) => {
     res.send(res.person);
 });
+
+personRoutes.get('/getByFull/:givenName/:lastName/:placeOfBirth/:birthYear?', getPersonByNameAndPob, (req, res) => {
+    res.send(res.person);
+});
+
 
 module.exports = {
     personRoutes

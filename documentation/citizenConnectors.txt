@@ -1,0 +1,23 @@
+citizen -> address
+[homeAddress]
+
+citizen -> passport
+[surname, givenName? ,dob, pob]
+
+citizen -> peoplebankaccount
+[forename, surname, dob, homeAddress]
+
+citizen -> peoplebusinessaddress
+[personName? , homeAddress, dob]
+
+citizen -> peoplemobile
+[forename, surname, address?]
+
+citizen -> vehicleRegistration
+[forename, surname, address?, dob]
+
+peoplemobile -> mobile
+[phonenumber, network]
+
+peoplebankaccount -> bankcard
+[bankAccountId, bank]
