@@ -6,13 +6,13 @@ const PassportSchema = require("../db/schemas/passportSchema");
 const getPassportById = async (req,res,next) => {
     let passport;
     try {
-        passport = await PassportSchema.find({
+        passport = await PassportSchema.findOne({
             passportNumber : req.params.id
         });
 
         console.log('byId'+passport);
         
-        if(!passport[0]){
+        if(!passport){
             return res.status(404).json({ message: "Cannot find passport"});
         }
     } catch (e) {

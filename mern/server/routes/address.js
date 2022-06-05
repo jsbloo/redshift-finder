@@ -6,13 +6,13 @@ const AddressSchema = require("../db/schemas/addressSchema");
 const getAddressById = async (req,res,next) => {
     let address;
     try {
-        address = await AddressSchema.find({
+        address = await AddressSchema.findOne({
             addressId : req.params.id
         });
 
         console.log('byId'+address);
         
-        if(!address[0]){
+        if(!address){
             return res.status(404).json({ message: "Cannot find address"});
         }
     } catch (e) {

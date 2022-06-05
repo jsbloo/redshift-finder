@@ -6,13 +6,13 @@ const MobilePhoneSchema = require("../db/schemas/mobilePhoneSchema");
 const getMobilePhoneById = async (req,res,next) => {
     let mobilePhone;
     try {
-        mobilePhone = await MobilePhoneSchema.find({
+        mobilePhone = await MobilePhoneSchema.findOne({
             id : req.params.id
         });
 
         console.log('byId'+mobilePhone);
         
-        if(!mobilePhone[0]){
+        if(!mobilePhone){
             return res.status(404).json({ message: "Cannot find mobilephone"});
         }
     } catch (e) {
