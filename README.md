@@ -4,9 +4,9 @@ MIRO-BOARD : https://miro.com/app/board/uXjVOwnjazE=/#tpicker-content
 <h3>Get by Ids:</h3>
 
  - http://localhost:3002/persons/getById/{id}
- - http://localhost:3002/address/getById/{id}
+ - http://localhost:3002/address/getById/{addressId}
  - http://localhost:3002/mobilePhone/getById/{id}
- - http://localhost:3002/passport/getById/{id}
+ - http://localhost:3002/passport/getById/{passportNumber}
 
  <h3>Get by givenNames/surname/birthPlace/birthYear</h3>
 
