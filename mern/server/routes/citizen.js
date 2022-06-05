@@ -6,13 +6,13 @@ const CitizenSchema = require("../db/schemas/citizenSchema");
 const getCitizenById = async (req,res,next) => {
     let citizen;
     try {
-        citizen = await CitizenSchema.find({
+        citizen = await CitizenSchema.findOne({
             citizenId : req.params.id
         });
 
         console.log(citizen);
         
-        if(!citizen[0]){
+        if(!citizen){
             return res.status(404).json({ message: "Cannot find citizen"});
         }
     } catch (e) {

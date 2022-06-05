@@ -5,7 +5,7 @@ const cors = require('cors');
 
 const URI = 'mongodb+srv://admin:2gjPbKkGq6CE3ka@redshift-db.doa1vwz.mongodb.net/world?retryWrites=true&w=majority'
 
-mongoose.connect(URI, { 
+mongoose.connect(URI, {
     useNewUrlParser: true
 });
 
@@ -33,5 +33,3 @@ const passportRouter = require("./routes/passport");
 app.use("/passport", passportRouter.passportRoutes);
 
 app.listen(3002, () => console.log("Server Started"));
-  
-

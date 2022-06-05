@@ -6,13 +6,13 @@ const PersonSchema = require("../db/schemas/personSchema");
 const getPersonById = async (req,res,next) => {
     let person;
     try {
-        person = await PersonSchema.find({
+        person = await PersonSchema.findOne({
             id : req.params.id
         });
 
         console.log('byId'+person);
         
-        if(!person[0]){
+        if(!person){
             return res.status(404).json({ message: "Cannot find person"});
         }
     } catch (e) {
@@ -23,6 +23,7 @@ const getPersonById = async (req,res,next) => {
     next();
 }
 
+//TODO: optimize
 const getPersonByNameAndPob = async (req,res,next) => {
     let person;
     console.log(req.params);
