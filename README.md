@@ -1,54 +1,25 @@
-Work In progress
-
-I'm here in spirit!
-
-kyrone was here!!
-
 MIRO-BOARD : https://miro.com/app/board/uXjVOwnjazE=/#tpicker-content
 
-```
-const person = {
-    citizenID : "",
-    forenames : "",
-    surname  : "",
-    homeAddress : "",
-    dateOfBirth : "",
-    placeOfBirth : "",
-    sex: "",
-    area: "",
-    postcode: "",
-    passport: {
-        passportNumber: "",
-        nationality: "",
-        issuingCountry: "",
-        dateOfIssue:"",
-        dateOfExpiry:""
-    },
-    bank: {
-        bankAccountId: "",
-        accountNumber: "",
-        bank: "",
-        bankcardId: "",
-        cardNumber: "",
-        sortCode: ""
-    },
-    businessAddress: {
-        businessName: "",
-        businessAddress: ""
-    },
-    mobile: {
-        network: "",
-        phoneId: ""
-    },
-    vehicle: {
-        registrationID: "",
-        registrationDate: "",
-        vehicleRegistrationNo: "",
-        make: "",
-        model: "",
-        colour: "",
-        driverLicenceID: ""
-    }
-}
+<h1>Requests</>
+<h3>Get by Ids:</h3>
 
-```
+ - http://localhost:3002/persons/getById/{id}
+ - http://localhost:3002/address/getById/{addressId}
+ - http://localhost:3002/mobilePhone/getById/{id}
+ - http://localhost:3002/passport/getById/{passportNumber}
+
+
+ <h3>Get by givenNames/surname/birthPlace/birthYear</h3>
+
+  - http://localhost:3002/persons/getByFull/Timothy%20Glenn/Owen/LONDON/1954
+
+   birthPlace is stored in capitals in db, there is no type checking in api do this in front end please,
+   birthYear is just a regex check, to see if number is contained within dateOfBirth. Can be birthDay as well like: ``` 1954-10-08 ```
+      
+
+
+
+  
+
+  
+
