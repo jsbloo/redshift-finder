@@ -9,7 +9,6 @@ const HomePage = () => {
         <div className="homepage" >
             <h1>HomePage</h1>
             <Navigation />
-            <EmptyModal />
            
 
         </div>
