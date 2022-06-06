@@ -1,21 +1,42 @@
-const Profile = ({data}) => {
+import Navigation from "./Navigation";
+import { useState, useEffect } from "react";
+import Card from "react-bootstrap/Card"
+import Button from "react-bootstrap/Button"
 
-    const {first_name, surname, home_address, date_of_birth, place_of_birth, sex} = data;
-
-    return ( 
+const Profile = ({person}) => {
+    console.log(person);
+    return (
         <>
-            <h2> Name: {first_name} {surname}</h2>
-            <h3> Address: {home_address} </h3>
-            <h3> Date of Birth: {date_of_birth} </h3>
-            <h3> Place of Birth: {place_of_birth} </h3>
-            <h3> Gender: {sex} </h3>
-            
-            <ol>
-        
-            </ol>
-
+                <Card style={{ width: '18rem' }}>
+                    <Card.Body>
+                    <Card.Title>{person.lastName}</Card.Title>
+                    <Card.Text>
+                    <div className="person">
+                    <small>
+                        {person.id}
+                        <br />
+                        {person.dob}
+                        <br />
+                        {person.givenName}
+                        <br />
+                        {person.placeOfBirth}
+                        <br />
+                        {person.isCitizen}
+                        <br />
+                        {person.sex}
+                        <br />
+                        {person.nationality}  
+                     </small>
+                </div>
+                </Card.Text>
+                    <Button variant="primary">Passport</Button>
+                    <Button variant="primary">Financial</Button>
+                    <Button variant="primary">Address</Button>
+                    <Button variant="primary">Mobile Phone</Button>
+                    </Card.Body>
+                </Card>
         </>
-     );
+    );
 }
  
 export default Profile;
