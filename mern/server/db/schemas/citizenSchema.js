@@ -2,16 +2,19 @@ const mongoose = require ('mongoose');
 const Schema = mongoose.Schema;
 
 const citizenSchema = new Schema({
-    citizenID : String,
+    citizenId : String,
     forenames : String,
     surname : String,
     homeAddress : String,
     dateOfBirth : String,
     placeOfBirth : String,
-    sex : String
+    sex : String,
+    address: String,
+    driverLicenseID: String
+
 }, 
     { 
-        collection : 'citizen10k'
+        collection : 'citizen'
     });
 
-module.exports = mongoose.model('citizen10k', citizenSchema);
+module.exports = mongoose.model('citizen', citizenSchema);
