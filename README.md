@@ -8,6 +8,7 @@ MIRO-BOARD : https://miro.com/app/board/uXjVOwnjazE=/#tpicker-content
  - http://localhost:3002/mobilePhone/getById/{id}
  - http://localhost:3002/passport/getById/{passportNumber}
 
+
  <h3>Get by givenNames/surname/birthPlace/birthYear</h3>
 
   - http://localhost:3002/persons/getByFull/Timothy%20Glenn/Owen/LONDON/1954
@@ -21,3 +22,4 @@ MIRO-BOARD : https://miro.com/app/board/uXjVOwnjazE=/#tpicker-content
   
 
   
+
