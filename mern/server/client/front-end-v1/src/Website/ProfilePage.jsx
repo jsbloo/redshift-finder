@@ -1,4 +1,4 @@
-import {useState, useEffect} from 'react';
+import { useState } from 'react';
 import axios from 'axios';
 import Profile from './Profile';
 import Button from 'react-bootstrap/esm/Button';
@@ -6,24 +6,48 @@ import Button from 'react-bootstrap/esm/Button';
 const ProfilePage = () => {
 
     // State
-    const [profileList, setProfileList] = useState([]); 
-    const [loaded, setLoaded] = useState(false); 
+    const [profileList, setProfileList] = useState([]);
+    const [loaded, setLoaded] = useState(false);
+    const [searchText, setSearchText] = useState("")
+    const [searchText1, setSearchText1] = useState("")
+    const [searchText2, setSearchText2] = useState("")
+    const [searchText3, setSearchText3] = useState("")
 
-    const getPeople = async () => {
-        const people = await axios.get("http://localhost:3002/persons/getByFull/Timothy%20Glenn/Owen/LONDON/1954");
+    const getPeople = async (event) => {
+        var APICallString = 'http://localhost:3002/persons/getByFull/' + searchText + '/' + searchText1 + '/' + searchText2 + '/' + searchText3
+        const people = await axios.get(APICallString)
+            .then((response) => {
+                setProfileList(response.data);
+            }).catch((error) => {
+                console.log(error);
+            });
         setProfileList(people.data);
         setLoaded(true);
     }
-    
-    return(
+
+
+    return (
         <>
             <h2> People: </h2>
-            <Button onClick={() => getPeople()}>Click me</Button>
+            <label >Enter Given Name</label>
+            <input type='text' onChange={e => setSearchText(e.target.value)}></input>
+            <br />
+            <label >Enter Last Name</label>
+            <input type='text' onChange={e => setSearchText1(e.target.value)}></input>
+            <br />
+            <label >Place of Birth</label>
+            <input type='text' onChange={e => setSearchText2(e.target.value)}></input>
+            <br />
+            <label >D.O.B</label>
+            <input type='text' onChange={e => setSearchText3(e.target.value)}></input>
+
+            <button onClick={e => getPeople(e)}>search for person</button>
+            {/* <Button onClick={() => getPeople()}>Click me</Button> */}
             {
                 profileList ?
                     profileList.map((p) => {
                         console.log(p);
-                        return <Profile person={p} className="data" key={p._id}/> 
+                        return <Profile person={p} className="data" key={p._id} />
                     }) : <h3>No data yet</h3>
             }
         </>
