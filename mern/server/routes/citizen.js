@@ -6,39 +6,17 @@ const CitizenSchema = require("../db/schemas/citizenSchema");
 const getCitizenById = async (req,res,next) => {
     let citizen;
     try {
-        citizen = await CitizenSchema.find({
-            citizenID : req.params.id
+        citizen = await CitizenSchema.findOne({
+            citizenId : req.params.id
         });
 
         console.log(citizen);
         
-        if(citizen == []){
+        if(!citizen){
             return res.status(404).json({ message: "Cannot find citizen"});
         }
     } catch (e) {
-        return res.status(500).json({ message: "error"});
-    }
-
-    res.citizen = citizen;
-    next();
-}
-
-const getByFnSnDob = async (req,res,next) => {
-    let citizen;
-    try {
-        citizen = await CitizenSchema.find({
-            forenames: req.params.fname,
-            surname: req.params.sname,
-            dateOfBirth: req.params.dob
-        });
-
-        console.log(citizen);
-
-        if(citizen == []){
-            return res.status(404).json({ message: "Cannot find citizen"});
-        }
-    }catch(e){
-        return res.status(500).json({ message: e.message });
+        return res.status(500).json({ message: e.message});
     }
 
     res.citizen = citizen;
@@ -46,12 +24,7 @@ const getByFnSnDob = async (req,res,next) => {
 }
 
 //getById
-citizenRoutes.get('/:id', getCitizenById, (req, res) => {
-    res.send(res.citizen);
-});
-
-//getByFnSnDob
-citizenRoutes.get('/:fname/:sname/:dob', getByFnSnDob ,(req, res) => {
+citizenRoutes.get('/getById/:id', getCitizenById, (req, res) => {
     res.send(res.citizen);
 });
 

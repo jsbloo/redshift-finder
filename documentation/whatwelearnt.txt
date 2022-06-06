@@ -1,0 +1,5 @@
+josh: learnt something: to call async function in a loop. You must use a 'for of' loop
+
+dan/josh: world folder in red shift, contains some linking id's. This changes our approach
+
+dan/josh: ssh tunneling / documentDb connection string
