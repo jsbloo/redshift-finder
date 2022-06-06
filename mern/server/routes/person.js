@@ -3,20 +3,20 @@ const personRoutes = express.Router();
 const PersonSchema = require("../db/schemas/personSchema");
 
 //middleware
-const getPersonById = async (req,res,next) => {
+const getPersonById = async (req, res, next) => {
     let person;
     try {
-        person = await PersonSchema.findOne({
-            id : req.params.id
+        person = await PersonSchema.find({
+            id: req.params.id
         });
 
-        console.log('byId'+person);
-        
-        if(!person){
-            return res.status(404).json({ message: "Cannot find person"});
+        console.log('byId' + person);
+
+        if (!person) {
+            return res.status(404).json({ message: "Cannot find person" });
         }
     } catch (e) {
-        return res.status(500).json({ message: e.message});
+        return res.status(500).json({ message: e.message });
     }
 
     res.person = person;
@@ -24,24 +24,24 @@ const getPersonById = async (req,res,next) => {
 }
 
 //TODO: optimize
-const getPersonByNameAndPob = async (req,res,next) => {
+const getPersonByNameAndPob = async (req, res, next) => {
     let person;
     console.log(req.params);
-    try{
+    try {
         person = await PersonSchema.find({
             givenName: (req.params.givenName),
             lastName: req.params.lastName,
             placeOfBirth: req.params.placeOfBirth,
-            dob: {$regex: req.params.birthYear}
+            dob: { $regex: req.params.birthYear }
         });
 
         console.log(person);
 
-        if(!person[0]){
-            return res.status(404).json({ message: "Cannot find person"});
+        if (!person[0]) {
+            return res.status(404).json({ message: "Cannot find person" });
         }
-    } catch(e){
-        return res.status(500).json({message: e.message})
+    } catch (e) {
+        return res.status(500).json({ message: e.message })
     }
 
     res.person = person;
