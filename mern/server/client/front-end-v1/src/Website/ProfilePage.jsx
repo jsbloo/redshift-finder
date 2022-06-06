@@ -1,27 +1,33 @@
 import {useState, useEffect} from 'react';
 import axios from 'axios';
 import Profile from './Profile';
+import Button from 'react-bootstrap/esm/Button';
 
 const ProfilePage = () => {
 
     // State
     const [profileList, setProfileList] = useState([]); 
     const [loaded, setLoaded] = useState(false); 
-    // const [fetch, setFetch] = useState(true); 
 
-    // UseEffect
-    useEffect(() => {
-        setTimeout(() => {
-            // axios.get(URL we are searching for) - axios will return a promise (data to be fulfilled)
-            axios.get("XXXXX") 
-            // .then() - whatever the previous function returns, chuck it in here and do this with it
-            .then((response) => {
-                console.log(response.data); // Check what the data looks like, to see *how* to set it
-                setProfileList(response.data);
-            
-                // Once the state for beerList has been set, we can setLoaded(true)
-                setLoaded(true);
-            });
-        }, 2000)
-    },[]);
-};
+    const getPeople = async () => {
+        const people = await axios.get("http://localhost:3002/persons/getByFull/Timothy%20Glenn/Owen/LONDON/1954");
+        setProfileList(people.data);
+        setLoaded(true);
+    }
+    
+    return(
+        <>
+            <h2> People: </h2>
+            <Button onClick={() => getPeople()}>Click me</Button>
+            {
+                profileList ?
+                    profileList.map((p) => {
+                        console.log(p);
+                        return <Profile person={p} className="data" key={p._id}/> 
+                    }) : <h3>No data yet</h3>
+            }
+        </>
+    );
+}
+
+export default ProfilePage;
