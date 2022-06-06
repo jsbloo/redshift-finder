@@ -1,12 +1,17 @@
 const mongoose = require ('mongoose');
 const Schema = mongoose.Schema;
 
-const collectionName = 'address10k'
+const collectionName = 'address'
 
 const addressSchema = new Schema({
-    homeAddress : String,
-    area : String,
-    postcode: String
+    location: String,
+    streetName: String,
+    houseNumber: String,
+    town: String,
+    postcode: String,
+    northing: String,
+    easting: String,
+    addressId: String
 }, 
     { 
         collection : collectionName
