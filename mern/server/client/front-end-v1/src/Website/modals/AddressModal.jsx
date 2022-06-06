@@ -13,17 +13,17 @@ const AddressModal = ({id}) => {
     const handleShow = () => setShow(true);
     
 
-    const getMobile = async () => {
+    const getAddress = async () => {
         const addressID = await axios.get(`http://localhost:3002/person2address/getById/${id}`);
-        const address = await axios.get(`http://localhost:3002/mobilePhone/getById/${addressID}`);
+        const address = await axios.get(`http://localhost:3002/address/getById/${addressID.data.addressId}`);
         setAddressData(address.data);
         handleShow();
     }
 
     return ( 
         <>
-            <Button variant="primary" onClick={getMobile}>
-                Display Mobile
+            <Button variant="primary" onClick={getAddress}>
+                Display Address
             </Button>
 
             <Modal show={show} onHide={handleClose}>
