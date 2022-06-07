@@ -9,10 +9,10 @@ import Profile from './Profile';
 const Search = () => {
     const [profileList, setProfileList] = useState([]);
     const [loaded, setLoaded] = useState(false);
-    const [searchText, setSearchText] = useState("")
-    const [searchText1, setSearchText1] = useState("")
-    const [searchText2, setSearchText2] = useState("")
-    const [searchText3, setSearchText3] = useState("")
+    const [searchText, setSearchText] = useState("*")
+    const [searchText1, setSearchText1] = useState("*")
+    const [searchText2, setSearchText2] = useState("*")
+    const [searchText3, setSearchText3] = useState("*")
 
     const getPeople = async (event) => {
         var APICallString = 'http://localhost:3002/persons/getByFull/' + searchText + '/' + searchText1 + '/' + searchText2 + '/' + searchText3
@@ -25,6 +25,7 @@ const Search = () => {
         setProfileList(people.data);
         setLoaded(true);
     }
+    if (!profileList) return null;
 
 
 
@@ -46,12 +47,12 @@ const Search = () => {
 
                     <Form.Group as={Col} controlId="formGridPassword">
                         <Form.Label>Place Of Birth</Form.Label>
-                        <Form.Control type="text" placeholder="Enter City" onChange={e => setSearchText2(e.target.value)} />
+                        <Form.Control type="text" placeholder="Enter City" onChange={e => setSearchText2(e.target.value.toUpperCase())} />
                     </Form.Group>
 
                     <Form.Group as={Col} controlId="formGridPassword">
                         <Form.Label>Date Of Birth</Form.Label>
-                        <Form.Control type="text" placeholder="Enter D.O.B" onChange={e => setSearchText3(e.target.value.toUpperCase())} />
+                        <Form.Control type="text" placeholder="Enter D.O.B" onChange={e => setSearchText3(e.target.value)} />
                     </Form.Group>
                 </Row>
                 <Button onClick={e => getPeople(e)}>
