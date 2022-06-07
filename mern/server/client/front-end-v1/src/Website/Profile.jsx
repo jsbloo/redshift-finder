@@ -1,7 +1,11 @@
 import Navigation from "./Navigation";
 import { useState, useEffect } from "react";
 import Card from "react-bootstrap/Card"
-import Container from "react-bootstrap/Container"
+import MobilePhoneModal from "./modals/MobilePhoneModal";
+import AddressModal from "./modals/AddressModal";
+import PassportModal from "./modals/PassportModal";
+import BankAccountModal from "./modals/BankAccountModal";
+import Container from"react-bootstrap/Container";
 import { Col, Row, Button, ListGroup} from "react-bootstrap";
 
 const Profile = ({ person }) => {
@@ -25,10 +29,10 @@ const Profile = ({ person }) => {
                     </Card.Text>
                 </Card.Body>
                 <Card.Footer>
-                <Button variant="primary">Passport</Button>
-                    <Button variant="primary">Financial</Button>
-                    <Button variant="primary">Address</Button>
-                    <Button variant="primary">Mobile Phone</Button>
+                    <PassportModal id={person.id}/>
+                    <BankAccountModal id={person.id}/>
+                    <AddressModal id={person.id}/>
+                    <MobilePhoneModal id={person.id}/>
                 </Card.Footer>
             </Card>
         </>
