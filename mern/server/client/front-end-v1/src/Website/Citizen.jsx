@@ -8,10 +8,10 @@ import axios from "axios"
 
 const Citizen = () => {
 
-    const [data, setData] = useState([]);
+    const [data, setData] = useState();
 
     const getAllData = () => {
-        axios.get("http://localhost:3001/citizens/1835596247")
+        axios.get("http://localhost:3002/persons/getById/142210")
             .then((response) => {
                 console.log(response.data);
                 setData(response.data);
@@ -34,16 +34,21 @@ const Citizen = () => {
                     return (
                         <div className="data" key={data._id}>
                             <h3>
-                                {data.citizenID}
+                                {data.id}
                                 <br />
-                                {data.dateOfBirth}
+                                {data.dob}
                                 <br />
-                                {data.forenames}
+                                {data.givenName}
                                 <br />
-                                {data.homeAddress}
+                                {data.lastName}
                                 <br />
                                 {data.placeOfBirth}
-
+                                <br />
+                                {data.isCitizen}
+                                <br />
+                                {data.sex}
+                                <br />
+                                {data.nationality}
 
 
                                 

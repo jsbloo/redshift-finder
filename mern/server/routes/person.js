@@ -3,45 +3,68 @@ const personRoutes = express.Router();
 const PersonSchema = require("../db/schemas/personSchema");
 
 //middleware
-const getPersonById = async (req,res,next) => {
+const getPersonById = async (req, res, next) => {
     let person;
     try {
         person = await PersonSchema.findOne({
-            id : req.params.id
+            id: req.params.id
         });
 
-        console.log('byId'+person);
-        
-        if(!person){
-            return res.status(404).json({ message: "Cannot find person"});
+        console.log('byId' + person);
+
+        if (!person) {
+            return res.status(404).json({
+                message: "Cannot find person"
+            });
         }
     } catch (e) {
-        return res.status(500).json({ message: e.message});
+        return res.status(500).json({
+            message: e.message
+        });
     }
 
     res.person = person;
     next();
 }
 
-//TODO: optimize
-const getPersonByNameAndPob = async (req,res,next) => {
+const getPersonByNameAndPob = async (req, res, next) => {
     let person;
-    console.log(req.params);
-    try{
+    const gn = req.params.givenName;
+    const ln = req.params.lastName;
+    const pob = req.params.placeOfBirth;
+    const dob = req.params.birthYear;
+    try {
+        // if all field equal none, default $and
+        const filter = [{}];
+
+        gn !== 'none' && filter.push({
+            givenName: gn
+        });
+        ln !== 'none' && filter.push({
+            lastName: ln
+        });
+        pob !== 'none' && filter.push({
+            placeOfBirth: pob
+        });
+        dob !== 'none' && filter.push({
+            dob: {$regex: dob}
+        });
+
         person = await PersonSchema.find({
-            givenName: (req.params.givenName),
-            lastName: req.params.lastName,
-            placeOfBirth: req.params.placeOfBirth,
-            dob: {$regex: req.params.birthYear}
+            $and: filter
         });
 
         console.log(person);
 
-        if(!person[0]){
-            return res.status(404).json({ message: "Cannot find person"});
+        if (!person[0]) {
+            return res.status(404).json({
+                message: "Cannot find person"
+            });
         }
-    } catch(e){
-        return res.status(500).json({message: e.message})
+    } catch (e) {
+        return res.status(500).json({
+            message: e.message
+        })
     }
 
     res.person = person;
@@ -53,7 +76,7 @@ personRoutes.get('/getById/:id', getPersonById, (req, res) => {
     res.send(res.person);
 });
 
-personRoutes.get('/getByFull/:givenName/:lastName/:placeOfBirth/:birthYear?', getPersonByNameAndPob, (req, res) => {
+personRoutes.get('/getByFull/:givenName/:lastName/:placeOfBirth/:birthYear', getPersonByNameAndPob, (req, res) => {
     res.send(res.person);
 });
 
