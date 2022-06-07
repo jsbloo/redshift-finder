@@ -1,10 +1,6 @@
 import AppManager from './Website/App-Manager';
 import './CSS/App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import SearchPage from './Website/SearchPage';
-
-
-
 
 function App() {
   return (
