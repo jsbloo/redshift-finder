@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import axios from 'axios';
 import Profile from './Profile';
-import Button from 'react-bootstrap/esm/Button';
 import './styling.css';
+import { Container, Row } from 'react-bootstrap';
  
 
 const ProfilePage = () => {
@@ -27,7 +27,6 @@ const ProfilePage = () => {
         setLoaded(true);
     }
 
-
     return (
         <>
             <h2> People: </h2>
@@ -47,16 +46,20 @@ const ProfilePage = () => {
             <input type='text' className='searchbox' onChange={e => setSearchText3(e.target.value)}></input>
             <br></br>
             <br></br>
+            <button className='searchbutton' onClick={e => getPeople(e)}>search for person</button>  
 
-            <button className='searchbutton' onClick={e => getPeople(e)}>search for person</button>
-            {/* <Button onClick={() => getPeople()}>Click me</Button> */}
-            {
+            <Container>
+                <Row xs={1} md={2} className="g-4">
+                {
                 profileList ?
                     profileList.map((p) => {
                         console.log(p);
                         return <Profile person={p} className="data" key={p._id} />
                     }) : <h3>No data yet</h3>
-            }
+                }
+                </Row>
+            </Container>
+            
         </>
     );
 }
