@@ -1,7 +1,7 @@
-import { Col, Row, Form, Button } from "react-bootstrap";
+import { Col, Row, Form, Button, Container } from "react-bootstrap";
 import { useState } from 'react';
 import axios from 'axios';
-import Profile from './Profile';
+import Profile from "./Profile";
 
 
 
@@ -9,10 +9,10 @@ import Profile from './Profile';
 const Search = () => {
     const [profileList, setProfileList] = useState([]);
     const [loaded, setLoaded] = useState(false);
-    const [searchText, setSearchText] = useState("*")
-    const [searchText1, setSearchText1] = useState("*")
-    const [searchText2, setSearchText2] = useState("*")
-    const [searchText3, setSearchText3] = useState("*")
+    const [searchText, setSearchText] = useState("none");
+    const [searchText1, setSearchText1] = useState("none");
+    const [searchText2, setSearchText2] = useState("none");
+    const [searchText3, setSearchText3] = useState("none");
 
     const getPeople = async (event) => {
         var APICallString = 'http://localhost:3002/persons/getByFull/' + searchText + '/' + searchText1 + '/' + searchText2 + '/' + searchText3
@@ -25,7 +25,6 @@ const Search = () => {
         setProfileList(people.data);
         setLoaded(true);
     }
-    if (!profileList) return null;
 
 
 
@@ -59,13 +58,23 @@ const Search = () => {
                     Search
                 </Button>
             </Form>
-            {
-                profileList ?
-                    profileList.map((p) => {
-                        console.log(p);
-                        return <Profile person={p} className="data" key={p._id} />
-                    }) : <h3>No data yet</h3>
-            }
+
+            <Container>
+                <Row xs={1} md={2} className="g-4">
+                    {
+                        profileList ?
+                            profileList.map((p) => {
+                                console.log(p);
+                                return <Profile person={p} className="data" key={p._id} />
+                            }) : <h3>No data yet</h3>
+                    }
+                </Row>
+            </Container>
+            
+
+           
+        
+        
         </>
 
 

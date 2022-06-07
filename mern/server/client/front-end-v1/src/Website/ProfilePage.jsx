@@ -1,19 +1,27 @@
+
 import Search from './Search';
+import './styling.css';
 
 
 const ProfilePage = () => {
 
-  
-  
+
     return (
         <>
-            <h2> Citizen Database: </h2>  
-            <br></br>
-            <br></br>
-            <Search/>
-        
+            <br />
+            <h2>Find A Citizen</h2>
+            <br />
+            <br />
+            <Search />
+            <br />
+            <br />
+
+
+
+
+
         </>
-        
+
     );
 }
 
