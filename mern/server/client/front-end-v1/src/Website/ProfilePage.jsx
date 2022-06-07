@@ -2,16 +2,18 @@ import { useState } from 'react';
 import axios from 'axios';
 import Profile from './Profile';
 import Button from 'react-bootstrap/esm/Button';
+import './styling.css';
+ 
 
 const ProfilePage = () => {
 
     // State
     const [profileList, setProfileList] = useState([]);
     const [loaded, setLoaded] = useState(false);
-    const [searchText, setSearchText] = useState("")
-    const [searchText1, setSearchText1] = useState("")
-    const [searchText2, setSearchText2] = useState("")
-    const [searchText3, setSearchText3] = useState("")
+    const [searchText, setSearchText] = useState("none");
+    const [searchText1, setSearchText1] = useState("none");
+    const [searchText2, setSearchText2] = useState("none");
+    const [searchText3, setSearchText3] = useState("none");
 
     const getPeople = async (event) => {
         var APICallString = 'http://localhost:3002/persons/getByFull/' + searchText + '/' + searchText1 + '/' + searchText2 + '/' + searchText3
@@ -29,19 +31,24 @@ const ProfilePage = () => {
     return (
         <>
             <h2> People: </h2>
-            <label >Enter Given Name</label>
-            <input type='text' onChange={e => setSearchText(e.target.value)}></input>
+            <label className='title'>Enter Given Name:</label>
+            <input type='text' className='searchbox' onChange={e => setSearchText(e.target.value)}></input>
             <br />
-            <label >Enter Last Name</label>
-            <input type='text' onChange={e => setSearchText1(e.target.value)}></input>
+            <br></br>
+            <label className='title'>Enter Last Name:</label>
+            <input type='text' className='searchbox' onChange={e => setSearchText1(e.target.value)}></input>
             <br />
-            <label >Place of Birth</label>
-            <input type='text' onChange={e => setSearchText2(e.target.value)}></input>
+            <br></br>
+            <label className='title' >Place of Birth: </label>
+            <input type='text' className='searchbox' onChange={e => setSearchText2(e.target.value)}></input>
             <br />
-            <label >D.O.B</label>
-            <input type='text' onChange={e => setSearchText3(e.target.value)}></input>
+            <br></br>
+            <label className='title'>Date of Birth:</label>
+            <input type='text' className='searchbox' onChange={e => setSearchText3(e.target.value)}></input>
+            <br></br>
+            <br></br>
 
-            <button onClick={e => getPeople(e)}>search for person</button>
+            <button className='searchbutton' onClick={e => getPeople(e)}>search for person</button>
             {/* <Button onClick={() => getPeople()}>Click me</Button> */}
             {
                 profileList ?

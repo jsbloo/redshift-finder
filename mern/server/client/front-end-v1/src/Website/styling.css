@@ -1,0 +1,15 @@
+.searchbox {
+    position: flex;
+    justify-content: space-between;
+    background-color: cornsilk;
+    border-radius: 20px;
+    
+    
+  }
+
+  .title {
+    position: flex;
+    justify-content: space-between;
+    background-color: cornsilk;
+    border-radius: 20px;
+  }
