@@ -51,6 +51,7 @@ const ProfilePage = () => {
                     }) : <h3>No data yet</h3>
             }
             
+            
         </>
         
     );
