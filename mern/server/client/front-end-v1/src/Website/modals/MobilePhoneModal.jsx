@@ -22,7 +22,7 @@ const MobilePhoneModal = ({id}) => {
     return ( 
         <>
             <Button variant="primary" onClick={getMobile}>
-                Display Mobile
+                Mobile
             </Button>
 
             <Modal show={show} onHide={handleClose}>

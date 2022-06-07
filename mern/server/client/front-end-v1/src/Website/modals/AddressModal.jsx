@@ -23,7 +23,7 @@ const AddressModal = ({id}) => {
     return ( 
         <>
             <Button variant="primary" onClick={getAddress}>
-                Display Address
+                Address
             </Button>
 
             <Modal show={show} onHide={handleClose}>
