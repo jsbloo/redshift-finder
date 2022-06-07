@@ -2,6 +2,7 @@ import Navigation from "./Navigation";
 import { useState, useEffect } from "react";
 import axios from "axios"
 
+
 // const { citizenID, dateOfBirth, forenames, homeAddress, placeOfBirth, sex, surname, _id} = data1;
 
 // https://jsonplaceholder.typicode.com/users
@@ -61,5 +62,6 @@ const Citizen = () => {
         </>
     );
 }
+
 
 export default Citizen;
