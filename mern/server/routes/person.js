@@ -52,7 +52,7 @@ const getPersonByNameAndPob = async (req, res, next) => {
 
         person = await PersonSchema.find({
             $and: filter
-        });
+        }).limit(20);
 
         console.log(person);
 
