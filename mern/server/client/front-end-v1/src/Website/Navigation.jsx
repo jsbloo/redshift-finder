@@ -1,5 +1,5 @@
 import { Navbar, Container, Nav, NavDropdown } from 'react-bootstrap';
-
+import About from './About';
 
 
 
@@ -11,9 +11,9 @@ const Navigation = () => {
 
 
             <br />
-            <Navbar bg="primary" variant="dark">
+            <Navbar bg="dark" variant="dark">
                 <Container>
-                    <Navbar.Brand href="#home">Navbar</Navbar.Brand>
+                    <Navbar.Brand href="#home">RedShift</Navbar.Brand>
                     <img
                         alt="Company Logo"
                         src= {require("./CompanyLogo.PNG")}
@@ -24,7 +24,7 @@ const Navigation = () => {
                     <Nav className="me-auto">
                         <Nav.Link href="#home">Home</Nav.Link>
                         <Nav.Link href="#features">Features</Nav.Link>
-                        <Nav.Link href="#pricing">About</Nav.Link>
+                        <Nav.Link href="./About.jsx">About</Nav.Link>
                     </Nav>
                 </Container>
             </Navbar>
