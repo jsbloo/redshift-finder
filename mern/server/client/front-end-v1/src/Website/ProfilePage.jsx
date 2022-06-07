@@ -8,10 +8,10 @@ const ProfilePage = () => {
     // State
     const [profileList, setProfileList] = useState([]);
     const [loaded, setLoaded] = useState(false);
-    const [searchText, setSearchText] = useState("")
-    const [searchText1, setSearchText1] = useState("")
-    const [searchText2, setSearchText2] = useState("")
-    const [searchText3, setSearchText3] = useState("")
+    const [searchText, setSearchText] = useState("none");
+    const [searchText1, setSearchText1] = useState("none");
+    const [searchText2, setSearchText2] = useState("none");
+    const [searchText3, setSearchText3] = useState("none");
 
     const getPeople = async (event) => {
         var APICallString = 'http://localhost:3002/persons/getByFull/' + searchText + '/' + searchText1 + '/' + searchText2 + '/' + searchText3
