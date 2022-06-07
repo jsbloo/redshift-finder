@@ -5,6 +5,7 @@ import Button from "react-bootstrap/Button"
 import MobilePhoneModal from "./modals/MobilePhoneModal";
 import AddressModal from "./modals/AddressModal";
 import PassportModal from "./modals/PassportModal";
+import BankAccountModal from "./modals/BankAccountModal";
 
 const Profile = ({person}) => {
     console.log(person);
@@ -33,7 +34,7 @@ const Profile = ({person}) => {
                 </div>
                 </Card.Text>
                     <PassportModal id={person.id}/>
-                    <Button variant="primary">Financial</Button>
+                    <BankAccountModal id={person.id}/>
                     <AddressModal id={person.id}/>
                     <MobilePhoneModal id={person.id}/>
                     </Card.Body>
