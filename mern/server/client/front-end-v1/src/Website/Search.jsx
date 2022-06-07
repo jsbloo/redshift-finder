@@ -8,7 +8,7 @@ const Search = () => {
             <form>
                 <label for="surname"> Enter Last Name: </label> 
                 <input type="text" id="surname" placeholder="Search...">  </input>
-                <button type="button" onClick={XX.XX}> Submit</button>
+                <button type="button"> Submit</button>
                  
             </form>
 
@@ -16,7 +16,7 @@ const Search = () => {
                 <label for="dob"> Date of Birth: </label>
                 <input type="date" id="dob" placeholder="Search...">  
                 </input>
-                <button type="button" onClick={XX.XX}> Submit</button>
+                <button type="button"> Submit</button>
 
             </form>
         
