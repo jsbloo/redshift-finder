@@ -6,7 +6,6 @@ import PassportModal from "./modals/PassportModal";
 import BankAccountModal from "./modals/BankAccountModal";
 
 const Profile = ({ person, randomPerson }) => {
-    console.log(person);
     return (
         <>
             <Card style={{ width: "18rem" }}>
@@ -15,11 +14,14 @@ const Profile = ({ person, randomPerson }) => {
                     src={randomPerson + person.sex.toLowerCase()}
                 />
                 <Card.Body style={{ borderstyle: "solid" }}>
-                    <Card.Title>{person.lastName}</Card.Title>
+                    <Card.Title>{person.givenName + " " + person.lastName}</Card.Title>
                     <Card.Text>
                         <ListGroup variant="flush">
                             <ListGroup.Item>id: {person.id}</ListGroup.Item>
-                            <ListGroup.Item>dob: {person.dob}</ListGroup.Item>
+                            <ListGroup.Item>dob: {person.dob.substring(0,9)}</ListGroup.Item>
+                            <ListGroup.Item>
+                                lastName: {person.lastName}
+                            </ListGroup.Item>
                             <ListGroup.Item>
                                 forenames: {person.givenName}
                             </ListGroup.Item>
