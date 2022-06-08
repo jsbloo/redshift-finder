@@ -9,8 +9,6 @@ const getAddressIdByPersonId = async (req,res,next) => {
         addressId = await Person2AddressSchema.findOne({
             personId : req.params.id
         });
-
-        console.log('byId'+addressId);
         
         if(!addressId){
             return res.status(404).json({ message: "Cannot find address Id"});

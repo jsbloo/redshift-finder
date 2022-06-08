@@ -10,8 +10,6 @@ const getPersonById = async (req, res, next) => {
             id: req.params.id
         });
 
-        console.log('byId' + person);
-
         if (!person) {
             return res.status(404).json({
                 message: "Cannot find person"
@@ -53,8 +51,6 @@ const getPersonByNameAndPob = async (req, res, next) => {
         person = await PersonSchema.find({
             $and: filter
         }).limit(20);
-
-        console.log(person);
 
         if (!person[0]) {
             return res.status(404).json({

@@ -9,8 +9,6 @@ const getAccountIdByPersonId = async (req,res,next) => {
         accountId = await Person2BankAccountSchema.findOne({
             personId : req.params.id
         });
-
-        console.log('byId'+accountId);
         
         if(!accountId){
             return res.status(404).json({ message: "Cannot find account Id"});

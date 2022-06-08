@@ -8,10 +8,8 @@ const getCitizenIdByPersonId = async (req,res,next) => {
     try {
         citizenId = await Person2CitizenSchema.findOne({
             personId : req.params.id
-        });
-
-        console.log('byId'+citizenId);
-        
+        });     
+           
         if(!citizenId){
             return res.status(404).json({ message: "Cannot find citizen Id"});
         }
