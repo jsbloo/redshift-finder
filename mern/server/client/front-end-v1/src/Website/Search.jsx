@@ -2,28 +2,37 @@ import { Col, Row, Form, Button, Container } from "react-bootstrap";
 import { useState } from "react";
 import axios from "axios";
 import Profile from "./Profile";
+import { set } from "mongoose";
 
 const Search = () => {
     const [profileList, setProfileList] = useState([]);
     const [loaded, setLoaded] = useState(false);
-    const [searchText, setSearchText] = useState("none");
-    const [searchText1, setSearchText1] = useState("none");
-    const [searchText2, setSearchText2] = useState("none");
-    const [searchText3, setSearchText3] = useState("none");
+    const [inputValue, setInputValue] = useState("");
+
+    let searchTxt = "none";
+    let searchTxt1 = "none";
+    let searchTxt2 = "none";
+    let searchTxt3 = "none";
 
     const rpImg = "https://xsgames.co/randomusers/avatar.php?g=";
 
-    const getPeople = async (event) => {
+    const getPeople = async () => {
+
+        if(searchTxt == ""){searchTxt="none";}
+        if(searchTxt1 == ""){searchTxt1="none";}
+        if(searchTxt2 == ""){searchTxt2="none";}
+        if(searchTxt3 == ""){searchTxt3="none";}
+
         var APICallString =
             "http://localhost:3002/persons/getByFull/" +
-            searchText +
+            searchTxt +
             "/" +
-            searchText1 +
+            searchTxt1 +
             "/" +
-            searchText2 +
+            searchTxt2 +
             "/" +
-            searchText3;
-        const people = await axios
+            searchTxt3;
+        await axios
             .get(APICallString)
             .then((response) => {
                 setProfileList(response.data);
@@ -31,8 +40,18 @@ const Search = () => {
             .catch((error) => {
                 console.log(error);
             });
-        setProfileList(people.data);
         setLoaded(true);
+    };
+
+    const reset = () => {
+        // setProfileList([]); //this is smarter way to reset
+        // searchTxt = "none";
+        // searchTxt1 = "none";
+        // searchTxt2 = "none";
+        // searchTxt3 = "none";
+
+        window.location.reload();
+
     };
 
     return (
@@ -44,7 +63,7 @@ const Search = () => {
                         <Form.Control
                             type="text"
                             placeholder="Enter Given Name"
-                            onChange={(e) => setSearchText(e.target.value)}
+                            onChange={(e) => (searchTxt = e.target.value)}
                         />
                     </Form.Group>
 
@@ -53,7 +72,7 @@ const Search = () => {
                         <Form.Control
                             type="text"
                             placeholder="Enter Last Name"
-                            onChange={(e) => setSearchText1(e.target.value)}
+                            onChange={(e) => (searchTxt1 = e.target.value)}
                         />
                     </Form.Group>
 
@@ -63,7 +82,7 @@ const Search = () => {
                             type="text"
                             placeholder="Enter City"
                             onChange={(e) =>
-                                setSearchText2(e.target.value.toUpperCase())
+                                (searchTxt2 = e.target.value.toUpperCase())
                             }
                         />
                     </Form.Group>
@@ -73,11 +92,21 @@ const Search = () => {
                         <Form.Control
                             type="text"
                             placeholder="Enter D.O.B"
-                            onChange={(e) => setSearchText3(e.target.value)}
+                            onChange={(e) => (searchTxt3 = e.target.value)}
                         />
                     </Form.Group>
                 </Row>
-                <Button onClick={(e) => getPeople(e)}>Search</Button>
+                <Button className="p-2 border" onClick={() => getPeople()}>
+                    Search
+                </Button>
+                <Button
+                    className="p-2 border"
+                    onClick={() => {
+                        reset();
+                    }}
+                >
+                    Reset
+                </Button>
             </Form>
 
             <Container>
