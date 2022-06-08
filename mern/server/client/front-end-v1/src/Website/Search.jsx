@@ -18,10 +18,10 @@ const Search = () => {
 
     const getPeople = async () => {
 
-        if(searchTxt == ""){searchTxt="none";}
-        if(searchTxt1 == ""){searchTxt1="none";}
-        if(searchTxt2 == ""){searchTxt2="none";}
-        if(searchTxt3 == ""){searchTxt3="none";}
+        if (searchTxt == "") { searchTxt = "none"; }
+        if (searchTxt1 == "") { searchTxt1 = "none"; }
+        if (searchTxt2 == "") { searchTxt2 = "none"; }
+        if (searchTxt3 == "") { searchTxt3 = "none"; }
 
         var APICallString =
             "http://localhost:3002/persons/getByFull/" +
@@ -35,6 +35,7 @@ const Search = () => {
         await axios
             .get(APICallString)
             .then((response) => {
+                console.log(APICallString)
                 setProfileList(response.data);
             })
             .catch((error) => {
