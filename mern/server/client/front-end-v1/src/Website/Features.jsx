@@ -1,9 +1,13 @@
 import { Container } from 'react-bootstrap';
 
-const About = () => {
+
+const Feature = () => {
     return (
+
         <>
+
             <Container>
+
 
                 <div class="preloader">
                     <div class="sk-rotating-plane"></div>
@@ -77,13 +81,22 @@ const About = () => {
                         </div>
                     </div>
                     
+                   
+
+
+
                 </div>
 
             </Container>
 
+
+
         </>
+
+
+
+
     );
-};
+}
 
-
-export default About;
+export default Feature;
