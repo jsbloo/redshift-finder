@@ -9,8 +9,6 @@ const getMobilePhoneById = async (req,res,next) => {
         mobilePhone = await MobilePhoneSchema.findOne({
             id : req.params.id
         });
-
-        console.log('byId'+mobilePhone);
         
         if(!mobilePhone){
             return res.status(404).json({ message: "Cannot find mobilephone"});

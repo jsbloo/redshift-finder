@@ -9,8 +9,6 @@ const getPassportIdByCitizenId = async (req,res,next) => {
         passportId = await Citizen2PassportSchema.findOne({
             citizenId : req.params.id
         });
-
-        console.log('byId'+passportId);
         
         if(!passportId){
             return res.status(404).json({ message: "Cannot find passport Id"});
