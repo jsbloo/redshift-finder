@@ -1,21 +1,11 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Citizen from "./Citizen";
-import HomePage from "./HomePage";
-import Navigation from "./Navigation";
-
+import ProfilePage from './ProfilePage';
 
 const AppManager = () => {
-    return (
-
+    return ( 
         <BrowserRouter>
-            {/* <Navigation/> */}
-            <Routes>
-                <Route path="/" element={<HomePage />} />
-                <Route path="/citizen" element={<Citizen/>} />
-
-
-
-
+            <Routes>      
+                <Route path="/" element={<ProfilePage />} />
             </Routes>
         </BrowserRouter>
     );
