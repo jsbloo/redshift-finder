@@ -1,13 +1,9 @@
 import { Container } from 'react-bootstrap';
 
-
 const About = () => {
     return (
-
         <>
-
             <Container>
-
 
                 <div class="preloader">
                     <div class="sk-rotating-plane"></div>
@@ -81,23 +77,13 @@ const About = () => {
                         </div>
                     </div>
                     
-                   
-
-
-
                 </div>
 
             </Container>
-
-
 
         </>
     );
 };
 
-
-
-
- 
 
 export default About;
