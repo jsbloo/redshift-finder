@@ -9,8 +9,6 @@ const getAddressById = async (req,res,next) => {
         address = await AddressSchema.findOne({
             addressId : req.params.id
         });
-
-        console.log('byId'+address);
         
         if(!address){
             return res.status(404).json({ message: "Cannot find address"});
