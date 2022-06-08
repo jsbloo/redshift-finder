@@ -7,11 +7,6 @@ const Navigation = () => {
 
     return (
         <>
-
-
-
-            <br />
-            
             <Navbar bg="dark" variant="dark">
                 <Container>
                     <Navbar.Brand href="#home">RedShift</Navbar.Brand>
@@ -29,8 +24,6 @@ const Navigation = () => {
                     </Nav>
                 </Container>
             </Navbar>
-
-
         </>
     )
 }
