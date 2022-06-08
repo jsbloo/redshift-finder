@@ -4,7 +4,7 @@ import ProfilePage from './ProfilePage';
 const AppManager = () => {
     return ( 
         <BrowserRouter>
-            <Routes>
+            <Routes>      
                 <Route path="/" element={<ProfilePage />} />
             </Routes>
         </BrowserRouter>

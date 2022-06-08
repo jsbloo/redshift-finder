@@ -1,19 +1,31 @@
-import { useState } from 'react';
-import axios from 'axios';
-import About from './About';
-import Button from 'react-bootstrap/esm/Button';
-
-
+import { Navbar, Container, Nav, NavDropdown } from 'react-bootstrap';
+import About from './About.jsx';
 
 
 
 const Navigation = () => {
 
     return (
-        <nav>
-           <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous"/>
-        </nav>
-    );
+        <>
+            <Navbar bg="dark" variant="dark">
+                <Container>
+                    <Navbar.Brand href="#home">RedShift</Navbar.Brand>
+                    <img
+                        alt="Company Logo"
+                        src= {require("./CompanyLogo.PNG")}
+                        width="50"
+                        height="50"
+                        className="d-inline-block align-top"
+                    />
+                    <Nav className="me-auto">
+                        <Nav.Link href="#home">Home</Nav.Link>
+                        <Nav.Link href="#features">Features</Nav.Link>
+                        <Nav.Link href="./About.jsx"> About</Nav.Link>
+                    </Nav>
+                </Container>
+            </Navbar>
+        </>
+    )
 }
 
 export default Navigation;

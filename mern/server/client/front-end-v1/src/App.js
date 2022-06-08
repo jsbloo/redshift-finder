@@ -1,13 +1,13 @@
 import AppManager from './Website/App-Manager';
 import './CSS/App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Navigation from "./Website/Navigation";
 
 function App() {
   return (
     <div className="App">
+      <Navigation />
       <AppManager/>
-      
-      
     </div>
   );
 }
