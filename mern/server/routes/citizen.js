@@ -9,8 +9,6 @@ const getCitizenById = async (req,res,next) => {
         citizen = await CitizenSchema.findOne({
             citizenId : req.params.id
         });
-
-        console.log(citizen);
         
         if(!citizen){
             return res.status(404).json({ message: "Cannot find citizen"});

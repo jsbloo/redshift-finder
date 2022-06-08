@@ -15,7 +15,14 @@ MIRO-BOARD : https://miro.com/app/board/uXjVOwnjazE=/#tpicker-content
 
    birthPlace is stored in capitals in db, there is no type checking in api do this in front end please,
    birthYear is just a regex check, to see if number is contained within dateOfBirth. Can be birthDay as well like: ``` 1954-10-08 ```
+   
+   
+   <h3>How to run tests</h3>
+   
+   - cd to ``` /redshift-finder/mern/server ```
+   - run ``` npm test ```
       
+
 
 
 
