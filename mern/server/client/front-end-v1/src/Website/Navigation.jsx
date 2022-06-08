@@ -1,11 +1,6 @@
-import { Navbar, Container, Nav, NavDropdown } from 'react-bootstrap';
-import About from './About';
-import React from 'react';
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-
+import { Navbar, Container, Nav, NavDropdown } from "react-bootstrap";
 
 const Navigation = () => {
-
     return (
         <>
             <Navbar bg="dark" variant="dark">
@@ -13,7 +8,7 @@ const Navigation = () => {
                     <Navbar.Brand href="/">RedShift</Navbar.Brand>
                     <img
                         alt="Company Logo"
-                        src= {require("./CompanyLogo.PNG")}
+                        src={require("./CompanyLogo.PNG")}
                         width="50"
                         height="50"
                         className="d-inline-block align-top"
@@ -31,7 +26,7 @@ const Navigation = () => {
             </Routes>
             </BrowserRouter> */}
         </>
-    )
-}
+    );
+};
 
 export default Navigation;

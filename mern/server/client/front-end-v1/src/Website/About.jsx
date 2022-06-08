@@ -1,7 +1,7 @@
 import { Container } from 'react-bootstrap';
 
 
-const Feature = () => {
+const About = () => {
     return (
 
         <>
@@ -92,11 +92,12 @@ const Feature = () => {
 
 
         </>
-
-
-
-
     );
-}
+};
 
-export default Feature;
+
+
+
+ 
+
+export default About;
