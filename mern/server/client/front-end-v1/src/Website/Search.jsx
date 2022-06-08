@@ -14,6 +14,8 @@ const Search = () => {
     const [searchText2, setSearchText2] = useState("none");
     const [searchText3, setSearchText3] = useState("none");
 
+    const rpImg = "https://xsgames.co/randomusers/avatar.php?g=";
+
     const getPeople = async (event) => {
         var APICallString = 'http://localhost:3002/persons/getByFull/' + searchText + '/' + searchText1 + '/' + searchText2 + '/' + searchText3
         const people = await axios.get(APICallString)
@@ -26,11 +28,7 @@ const Search = () => {
         setLoaded(true);
     }
 
-
-
     return (
-
-
         <>
             <Form>
                 <Row className="mb-3">
@@ -64,8 +62,7 @@ const Search = () => {
                     {
                         profileList ?
                             profileList.map((p) => {
-                                console.log(p);
-                                return <Profile person={p} className="data" key={p._id} />
+                                return <Profile person={p} randomPerson={rpImg} className="data" key={p._id} />
                             }) : <h3>No data yet</h3>
                     }
                 </Row>
