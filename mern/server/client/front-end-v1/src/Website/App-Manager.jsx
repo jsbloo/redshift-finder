@@ -1,14 +1,19 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import ProfilePage from './ProfilePage';
+import ProfilePage from "./ProfilePage";
+import About from "./About"
+import Features from "./Features"
 
 const AppManager = () => {
-    return ( 
+    return (
         <BrowserRouter>
-            <Routes>      
+            <Routes>
                 <Route path="/" element={<ProfilePage />} />
+                <Route path="/About" element={<About />} />
+                <Route path="/Features" element={<Features />} />
             </Routes>
         </BrowserRouter>
+        
     );
-}
+};
 
 export default AppManager;
