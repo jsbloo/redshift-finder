@@ -8,7 +8,10 @@ const Search = () => {
     const [profileList, setProfileList] = useState([]);
     const [loaded, setLoaded] = useState(false);
     const [inputValue, setInputValue] = useState("");
+    const [found, setFound] = useState(false);
 
+    const personNotFoundElement = <div><br/><h1>People Not Found</h1></div>
+    
     let searchTxt = "none";
     let searchTxt1 = "none";
     let searchTxt2 = "none";
@@ -36,8 +39,11 @@ const Search = () => {
             .get(APICallString)
             .then((response) => {
                 setProfileList(response.data);
+                setFound("");
             })
             .catch((error) => {
+                setFound(personNotFoundElement);
+                setProfileList([]);
                 console.log(error);
             });
         setLoaded(true);
@@ -109,7 +115,9 @@ const Search = () => {
                 </Button>
             </Form>
 
-            <Container>
+            <Container className="mt-5">
+                {found}
+
                 <Row xs={1} md={2} className="g-4">
                     {profileList ? (
                         profileList.map((p) => {
