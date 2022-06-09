@@ -1,9 +1,13 @@
 import { Container } from 'react-bootstrap';
 
-const About = () => {
+
+const Feature = () => {
     return (
+
         <>
+
             <Container>
+
 
                 <div class="preloader">
                     <div class="sk-rotating-plane"></div>
@@ -66,24 +70,33 @@ const About = () => {
                             <blockquote>
                             <img
                                     alt="BAE Logo"
-                                    src={require("./ReactLogo.png")}
+                                    src={require("./BAELogo.png")}
                                     width="100"
                                     height="100"
                                     className="d-inline-block align-top"
                                 />
-                                <footer> <br></br> For More Details Visit: <a href="https://facebook.github.io/react/" title="Main Website">React</a></footer>
+                                <footer> For More Details Visit: <a href="https://facebook.github.io/react/" title="Main Website">React</a></footer>
                             </blockquote>
                            
                         </div>
                     </div>
                     
+                   
+
+
+
                 </div>
 
             </Container>
 
+
+
         </>
+
+
+
+
     );
-};
+}
 
-
-export default About;
+export default Feature;
