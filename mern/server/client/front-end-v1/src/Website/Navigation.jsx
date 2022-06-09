@@ -5,7 +5,7 @@ const Navigation = () => {
         <>
             <Navbar bg="dark" variant="dark">
                 <Container>
-                    <Navbar.Brand href="#home">RedShift</Navbar.Brand>
+                    <Navbar.Brand href="/">RedShift</Navbar.Brand>
                     <img
                         alt="Company Logo"
                         src={require("./CompanyLogo.PNG")}
@@ -14,12 +14,17 @@ const Navigation = () => {
                         className="d-inline-block align-top"
                     />
                     <Nav className="me-auto">
-                        <Nav.Link href="#home">Home</Nav.Link>
-                        <Nav.Link href="#features">Features</Nav.Link>
-                        <Nav.Link href="./About.jsx"> About</Nav.Link>
+                        <Nav.Link href="/">Home</Nav.Link>
+                        <Nav.Link href="/Features">Features</Nav.Link>
+                        <Nav.Link href="/About"> About</Nav.Link>
                     </Nav>
                 </Container>
             </Navbar>
+            {/* <BrowserRouter>
+            <Routes>      
+                <Route path="/About" element={<About />} />
+            </Routes>
+            </BrowserRouter> */}
         </>
     );
 };
