@@ -17,25 +17,25 @@ const Profile = ({ person, randomPerson }) => {
                     <Card.Title>{person.givenName + " " + person.lastName}</Card.Title>
                     <Card.Text>
                         <ListGroup variant="flush">
-                            <ListGroup.Item>id: {person.id}</ListGroup.Item>
-                            <ListGroup.Item>dob: {person.dob.substring(0,9)}</ListGroup.Item>
+                            <ListGroup.Item><strong>Person ID:</strong> {person.id}</ListGroup.Item>
+                            <ListGroup.Item><strong>Date of Birth:</strong> {person.dob.substring(0,9)}</ListGroup.Item>
                             <ListGroup.Item>
-                                lastName: {person.lastName}
+                            <strong>Surname:</strong> {person.lastName}
                             </ListGroup.Item>
                             <ListGroup.Item>
-                                forenames: {person.givenName}
+                            <strong>Forenames:</strong> {person.givenName}
                             </ListGroup.Item>
                             <ListGroup.Item>
-                                pob: {person.placeOfBirth}
+                            <strong>Place of Birth:</strong> {person.placeOfBirth}
                             </ListGroup.Item>
                             <ListGroup.Item>
-                                citizenship: {person.isCitizen}
+                            <strong>Citizen of UK:</strong> {person.isCitizen}
                             </ListGroup.Item>
                             <ListGroup.Item>
-                                gender: {person.sex}
+                                <strong>Gender:</strong> {person.sex}
                             </ListGroup.Item>
                             <ListGroup.Item>
-                                nationality: {person.nationality}
+                                <strong>Nationality:</strong> {person.nationality}
                             </ListGroup.Item>
                         </ListGroup>
                     </Card.Text>
