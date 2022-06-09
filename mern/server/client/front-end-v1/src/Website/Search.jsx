@@ -27,7 +27,7 @@ const Search = () => {
         if(searchTxt3 == ""){searchTxt3="none";}
 
         var APICallString =
-            "http://localhost:3002/persons/getByFull/" +
+            "http://18.132.193.129:3002/persons/getByFull/" +
             searchTxt +
             "/" +
             searchTxt1 +
