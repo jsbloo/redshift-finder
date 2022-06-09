@@ -11,7 +11,7 @@ const Profile = ({ person, randomPerson }) => {
             <Card style={{ width: "18rem"}} className="m-1">
                 <Card.Img className="p-2"
                     variant="top"
-                    src={randomPerson + person.sex.toLowerCase()}
+                    src={randomPerson + person.sex.toLowerCase() + "/" + Math.floor(Math.random() * 78) + ".jpg"}
                 />
                 <Card.Body style={{ borderstyle: "solid" }}>
                     <Card.Title>{person.givenName + " " + person.lastName}</Card.Title>

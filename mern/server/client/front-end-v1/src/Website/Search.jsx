@@ -17,7 +17,7 @@ const Search = () => {
     let searchTxt2 = "none";
     let searchTxt3 = "none";
 
-    const rpImg = "https://xsgames.co/randomusers/avatar.php?g=";
+    const rpImg = "http://xsgames.co/randomusers/assets/avatars/";
 
     const getPeople = async () => {
 
