@@ -7,7 +7,7 @@ const ProfilePage = () => {
             <h2>Find A Person</h2>
             <br />
             <br />
-            <Search />
+            <Search schema={"persons"}/>
             <br />
             <br />
         </>
