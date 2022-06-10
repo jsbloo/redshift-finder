@@ -1,10 +1,10 @@
 import { Col, Row, Form, Button, Container } from "react-bootstrap";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 import Profile from "./Profile";
 
 const FriendSearch = () => {
-    const [profileList, setProfileList] = useState([]);
+    const [profileList, setProfileList] = useState("");
     const [loaded, setLoaded] = useState(false);  
     const [id, setId] = useState("");
     const [r, setR] = useState("");
@@ -34,8 +34,11 @@ const FriendSearch = () => {
                             });
                     }
                     console.log(p);
-                    setProfileList(p);
-                })();
+                    return p;
+                })().then((e)=>{
+                    console.log(profileList);
+                    setProfileList(e);
+                });
             })
             .catch((error) => {
                 errMsg = error.message;
