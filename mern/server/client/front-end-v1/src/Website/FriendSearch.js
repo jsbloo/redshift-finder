@@ -7,6 +7,7 @@ const FriendSearch = () => {
     const [profileList, setProfileList] = useState([]);
     const [loaded, setLoaded] = useState(false);  
     const [id, setId] = useState("");
+    const [r, setR] = useState("");
 
     const rpImg = "http://xsgames.co/randomusers/assets/avatars/";
     const APICallString = "http://localhost:3002/friends/getById/";
