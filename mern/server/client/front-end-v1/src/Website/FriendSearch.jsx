@@ -7,7 +7,7 @@ const FriendSearch = () => {
     const [profileList, setProfileList] = useState("");
     const [loaded, setLoaded] = useState(false);  
     const [id, setId] = useState("");
-    const [r, setR] = useState("");
+    const [deactivate, setDeactivate] = useState(false);
 
     const rpImg = "http://xsgames.co/randomusers/assets/avatars/";
     const APICallString = "http://localhost:3002/friends/getById/";
@@ -36,7 +36,6 @@ const FriendSearch = () => {
                     console.log(p);
                     return p;
                 })().then((e)=>{
-                    console.log(profileList);
                     setProfileList(e);
                 });
             })
@@ -65,11 +64,14 @@ const FriendSearch = () => {
                         />
                     </Form.Group>
                 </Row>
-                <Button className="p-2 border" onClick={() => getFriends()}>
+                <Button className="p-2 border" disabled={deactivate} onClick={() => {getFriends(); setDeactivate(true)}}>
+                    Stage
+                </Button>
+                <Button className="p-2 border btn btn-success" disabled={!deactivate} onClick={() => {setId(id + " "); setDeactivate(false)}}>
                     Search
                 </Button>
                 <Button
-                    className="p-2 border"
+                    className="p-2 border btn btn-danger"
                     onClick={() => {
                         reset();
                     }}
@@ -93,7 +95,7 @@ const FriendSearch = () => {
                             );
                         })
                     ) : (
-                        <h3>No data yet</h3>
+                <h3>No data yet</h3>
                     )}
                 </Row>
             </Container>
