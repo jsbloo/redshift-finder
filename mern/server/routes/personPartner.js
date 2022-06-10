@@ -6,13 +6,9 @@ const personPartner = require("../db/schemas/personPartnerSchema");
 const getPartnerIdByPersonId = async (req,res,next) => {
     let partners;
     try {
-        partners = await personPartner.find({
+        partners = await personPartner.findOne({
             personId : req.params.id
         });     
-           
-        if(!partners[0]){
-            return res.status(404).json({ message: "Cannot find partners Id"});
-        }
     } catch (e) {
         return res.status(500).json({ message: e.message});
     }
@@ -22,7 +18,7 @@ const getPartnerIdByPersonId = async (req,res,next) => {
 }
 
 //getById
-person2citizenRoutes.get('/getById/:id', getPartnerIdByPersonId, (req, res) => {
+personPartnerRoutes.get('/getById/:id', getPartnerIdByPersonId, (req, res) => {
     res.send(res.partners);
 });
 
