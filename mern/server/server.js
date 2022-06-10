@@ -46,6 +46,12 @@ app.use("/mobilePhone", mobilePhoneRouter.mobilePhoneRoutes);
 const passportRouter = require("./routes/passport");
 app.use("/passport", passportRouter.passportRoutes);
 
+const personPartnerRouter = require("./routes/personPartner");
+app.use("/partner", personPartnerRouter.personPartnerRoutes);
+
+const friendRouter = require("./routes/friends");
+app.use("/friends", friendRouter.friendRoutes);
+
 app.listen(3002, () => console.log("Server Started"));
 
 module.exports = {
