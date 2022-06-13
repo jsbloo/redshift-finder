@@ -5,7 +5,7 @@ import Profile from "./Profile";
 
 const FriendSearch = () => {
     const [profileList, setProfileList] = useState("");
-    const [loaded, setLoaded] = useState(false);  
+    const [loaded, setLoaded] = useState(false);
     const [id, setId] = useState("");
     const [deactivate, setDeactivate] = useState(false);
 
@@ -24,7 +24,7 @@ const FriendSearch = () => {
                         axios
                             .get(
                                 "http://localhost:3002/persons/getById/" +
-                                    e.friendId
+                                e.friendId
                             )
                             .then((response) => {
                                 p.push(response.data);
@@ -35,7 +35,7 @@ const FriendSearch = () => {
                     }
                     console.log(p);
                     return p;
-                })().then((e)=>{
+                })().then((e) => {
                     setProfileList(e);
                 });
             })
@@ -64,10 +64,16 @@ const FriendSearch = () => {
                         />
                     </Form.Group>
                 </Row>
-                <Button className="p-2 border" disabled={deactivate} onClick={() => {getFriends(); setDeactivate(true)}}>
+                <Button className="p-2 border" disabled={deactivate}
+                    onClick={() => { getFriends(); setDeactivate(true) }}
+                    style={{ backgroundColor: "#FFEA00", color: "black", margin: "1%", boxShadow: "5px 5px 3px rgba(46, 46, 46, 0.62)" }}
+                >
                     Stage
                 </Button>
-                <Button className="p-2 border btn btn-success" disabled={!deactivate} onClick={() => {setId(id + " "); setDeactivate(false)}}>
+                <Button className="p-2 border btn btn-success"
+                    onClick={() => { setId(id + " "); setDeactivate(false) }}
+                    style={{ backgroundColor: "#50C878", color: "black", margin: "1%", boxShadow: "5px 5px 3px rgba(46, 46, 46, 0.62)" }}
+                >
                     Search
                 </Button>
                 <Button
@@ -75,12 +81,13 @@ const FriendSearch = () => {
                     onClick={() => {
                         reset();
                     }}
+                    style={{ backgroundColor: "red", color: "black", margin: "1%", boxShadow: "5px 5px 3px rgba(46, 46, 46, 0.62)" }}
                 >
                     Reset
                 </Button>
             </Form>
             <br></br>
-            <h3>Friends of : {id}</h3>
+            <h3 id="titleFont">Friends of : {id}</h3>
             <Container className="mt-5">
                 <Row xs={1} md={2} className="g-4">
                     {profileList ? (
@@ -95,7 +102,7 @@ const FriendSearch = () => {
                             );
                         })
                     ) : (
-                <h3>No data yet</h3>
+                        <h3 id="titleFont" className="noDataYet">No data yet</h3>
                     )}
                 </Row>
             </Container>

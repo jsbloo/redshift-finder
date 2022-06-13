@@ -1,16 +1,51 @@
 .App {
   text-align: center;
 }
+@import url("https://fonts.googleapis.com/css?family=Merriweather");
 
-.homepage {
-  background-color: aqua;
+#profileBackground {
+  /* background-color: #808080; */
   height: 100vh;
   width: 100vw;
 }
-/* body{
+#aboutBackground {
+  /* background-color: #808080; */
+  height: 100vh;
+  width: 100vw;
+}
 
-  background-color: aqua;
-} */
+#titleFont {
+  font-family: "Merriweather";
+  /* color:  #fff; */
+}
+.noDataYet {
+  position: relative;
+  left: 25%;
+}
+
+.aboutText {
+  text-align: justify;
+  font-family: "Merriweather";
+  position: relative;
+  left: 10%;
+}
+ #aboutPosition{
+   position: relative; 
+   top :20px;
+ }
+
+ #aboutImage1{
+   position: relative; 
+   top :99px
+ }
+ #aboutImage2{
+   position: relative; 
+   top :57px
+ }
+ #aboutImage3{
+   position: relative; 
+   top :173px
+ }
 
 .btn1 {
   position: flex;
