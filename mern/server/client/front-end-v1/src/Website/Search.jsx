@@ -7,6 +7,7 @@ const Search = () => {
     const [profileList, setProfileList] = useState([]);
     const [loaded, setLoaded] = useState(false);
     const [found, setFound] = useState(false);
+    const [deactivate, setDeactivate] = useState(false);
 
     const personNotFoundElement = (
         <div>
@@ -108,8 +109,9 @@ const Search = () => {
                     </Form.Group>
                 </Row>
                 <Button className="p-2 border"
-                    onClick={() => getPeople()}
-                    style={{ backgroundColor: "#555555", margin: "0.5%", width:"90px" }} >
+                    onClick={() => {getPeople(); setDeactivate(true)}}
+                    style={{ backgroundColor: "#555555", margin: "0.5%", width:"90px" }} 
+                    disabled={deactivate}>
                     Search
                 </Button>
                 <Button
