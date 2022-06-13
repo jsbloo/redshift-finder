@@ -14,14 +14,14 @@ const MobilePhoneModal = ({id}) => {
     
 
     const getMobile = async () => {
-        const mobile = await axios.get(`http://3.10.113.211:3002/mobilePhone/getById/${id}`);
+        const mobile = await axios.get(`http://localhost:3002/mobilePhone/getById/${id}`);
         setMobileData(mobile.data);
         handleShow();
     }
 
     return ( 
         <>
-            <Button variant="primary" onClick={getMobile}>
+            <Button className="m-1 w-30" variant="primary" onClick={getMobile}>
                 Mobile
             </Button>
 

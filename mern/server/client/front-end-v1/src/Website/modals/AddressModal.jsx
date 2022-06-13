@@ -14,15 +14,15 @@ const AddressModal = ({id}) => {
     
 
     const getAddress = async () => {
-        const addressID = await axios.get(`http://3.10.113.211:3002/person2address/getById/${id}`);
-        const address = await axios.get(`http://3.10.113.211:3002/address/getById/${addressID.data.addressId}`);
+        const addressID = await axios.get(`http://localhost:3002/person2address/getById/${id}`);
+        const address = await axios.get(`http://localhost:3002/address/getById/${addressID.data.addressId}`);
         setAddressData(address.data);
         handleShow();
     }
 
     return ( 
         <>
-            <Button variant="primary" onClick={getAddress}>
+            <Button className="m-1 w-30"  variant="primary" onClick={getAddress}>
                 Address
             </Button>
 

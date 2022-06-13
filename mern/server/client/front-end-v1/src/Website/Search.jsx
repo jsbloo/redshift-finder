@@ -37,7 +37,8 @@ const Search = () => {
         }
 
         var APICallString =
-            "http://3.10.113.211:3002/persons/getByFull/" +
+        "http://localhost:3002/persons" +
+        "/getByFull/" +
             searchTxt +
             "/" +
             searchTxt1 +
@@ -48,6 +49,7 @@ const Search = () => {
         await axios
             .get(APICallString)
             .then((response) => {
+                console.log(APICallString)
                 setProfileList(response.data);
                 setFound("");
             })
@@ -60,21 +62,15 @@ const Search = () => {
     };
 
     const reset = () => {
-        // setProfileList([]); //this is smarter way to reset
-        // searchTxt = "none";
-        // searchTxt1 = "none";
-        // searchTxt2 = "none";
-        // searchTxt3 = "none";
-
         window.location.reload();
     };
 
     return (
         <>
             <Form>
-                <Row className="mb-3">
-                    <Form.Group as={Col}>
-                        <Form.Label>Given Name</Form.Label>
+                <Row className="m-auto col-md-7">
+                    <Form.Group as={Col} >
+                        <Form.Label id="titleFont">Given Name</Form.Label>
                         <Form.Control
                             type="text"
                             placeholder="Enter Given Name"
@@ -83,7 +79,7 @@ const Search = () => {
                     </Form.Group>
 
                     <Form.Group as={Col}>
-                        <Form.Label>Last Name</Form.Label>
+                        <Form.Label id="titleFont" >Last Name</Form.Label>
                         <Form.Control
                             type="text"
                             placeholder="Enter Last Name"
@@ -92,7 +88,7 @@ const Search = () => {
                     </Form.Group>
 
                     <Form.Group as={Col}>
-                        <Form.Label>Place Of Birth</Form.Label>
+                        <Form.Label id="titleFont" >Place Of Birth</Form.Label>
                         <Form.Control
                             type="text"
                             placeholder="Enter City"
@@ -103,7 +99,7 @@ const Search = () => {
                     </Form.Group>
 
                     <Form.Group as={Col}>
-                        <Form.Label>Date Of Birth</Form.Label>
+                        <Form.Label id="titleFont" >Date Of Birth</Form.Label>
                         <Form.Control
                             type="text"
                             placeholder="Enter D.O.B"
@@ -111,7 +107,9 @@ const Search = () => {
                         />
                     </Form.Group>
                 </Row>
-                <Button className="p-2 border" onClick={() => getPeople()}>
+                <Button className="p-2 border"
+                    onClick={() => getPeople()}
+                    style={{ backgroundColor: "#555555", margin: "0.5%", width:"90px" }} >
                     Search
                 </Button>
                 <Button
@@ -119,11 +117,16 @@ const Search = () => {
                     onClick={() => {
                         reset();
                     }}
-                >
+                    style={{ backgroundColor: "#555555", margin: "0.5%", width:"90px" }} >
+                
                     Reset
                 </Button>
             </Form>
+       
+            <a href="/ById">Have a person ID?</a>
+            
             <Container className="mt-5">
+
                 {found}
 
                 <Row xs={1} md={2} className="g-4">

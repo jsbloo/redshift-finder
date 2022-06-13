@@ -12,18 +12,17 @@ const BankAccountModal = ({id}) => {
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
     
-
     const getAccount = async () => {
-        const accountID = await axios.get(`http://3.10.113.211:3002/person2bankaccount/getById/${id}`);
+        const accountID = await axios.get(`http://localhost:3002/person2bankaccount/getById/${id}`);
         console.log(accountID.data);
-        const account = await axios.get(`http://3.10.113.211:3002/bankaccount/getById/${accountID.data.bankaccountId}`);
+        const account = await axios.get(`http://localhost:3002/bankaccount/getById/${accountID.data.bankaccountId}`);
         setAccountData(account.data);
         handleShow();
     }
 
     return ( 
         <>
-            <Button variant="primary" onClick={getAccount}>
+            <Button className="m-1 w-30" variant="primary" onClick={getAccount}>
                 Bank
             </Button>
 
