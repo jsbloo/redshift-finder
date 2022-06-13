@@ -12,7 +12,6 @@ const BankAccountModal = ({id}) => {
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
     
-
     const getAccount = async () => {
         const accountID = await axios.get(`http://localhost:3002/person2bankaccount/getById/${id}`);
         console.log(accountID.data);

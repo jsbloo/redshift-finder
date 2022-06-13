@@ -54,7 +54,7 @@ const FriendSearch = () => {
     return (
         <>
             <Form>
-                <Row className="mb-3">
+                <Row className="mb-3 col-md-3 m-auto">
                     <Form.Group as={Col}>
                         <Form.Label>Person ID</Form.Label>
                         <Form.Control
@@ -66,13 +66,13 @@ const FriendSearch = () => {
                 </Row>
                 <Button className="p-2 border" disabled={deactivate}
                     onClick={() => { getFriends(); setDeactivate(true) }}
-                    style={{ backgroundColor: "#FFEA00", color: "black", margin: "1%", boxShadow: "5px 5px 3px rgba(46, 46, 46, 0.62)" }}
+                    style={{ backgroundColor: "#FFEA00", color: "black", margin: "1%", width:"100px"}}
                 >
                     Stage
                 </Button>
                 <Button className="p-2 border btn btn-success"
                     onClick={() => { setId(id + " "); setDeactivate(false) }}
-                    style={{ backgroundColor: "#50C878", color: "black", margin: "1%", boxShadow: "5px 5px 3px rgba(46, 46, 46, 0.62)" }}
+                    style={{ backgroundColor: "#50C878", color: "black", margin: "1%", width:"100px"}}
                 >
                     Search
                 </Button>
@@ -81,7 +81,7 @@ const FriendSearch = () => {
                     onClick={() => {
                         reset();
                     }}
-                    style={{ backgroundColor: "red", color: "black", margin: "1%", boxShadow: "5px 5px 3px rgba(46, 46, 46, 0.62)" }}
+                    style={{ backgroundColor: "red", color: "black", margin: "1%", width:"100px"}}
                 >
                     Reset
                 </Button>

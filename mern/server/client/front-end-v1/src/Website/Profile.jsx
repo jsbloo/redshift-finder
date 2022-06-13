@@ -76,7 +76,7 @@ const Profile = ({ person, randomPerson }) => {
                                 {person.nationality}
                             </ListGroup.Item>
                             <ListGroup.Item>
-                                <strong>Partner:</strong> {partner}
+                                <strong>Partner ID:</strong> {partner}
                             </ListGroup.Item>
                         </ListGroup>
                     </Card.Text>

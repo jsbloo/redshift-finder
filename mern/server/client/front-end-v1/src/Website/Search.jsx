@@ -68,8 +68,8 @@ const Search = () => {
     return (
         <>
             <Form>
-                <Row className="mb-3">
-                    <Form.Group as={Col}>
+                <Row className="m-auto col-md-7">
+                    <Form.Group as={Col} >
                         <Form.Label id="titleFont">Given Name</Form.Label>
                         <Form.Control
                             type="text"
@@ -109,7 +109,7 @@ const Search = () => {
                 </Row>
                 <Button className="p-2 border"
                     onClick={() => getPeople()}
-                    style={{ backgroundColor: "#555555", margin: "1%", boxShadow: "5px 5px 3px rgba(46, 46, 46, 0.62)" }} >
+                    style={{ backgroundColor: "#555555", margin: "0.5%", width:"90px" }} >
                     Search
                 </Button>
                 <Button
@@ -117,12 +117,16 @@ const Search = () => {
                     onClick={() => {
                         reset();
                     }}
-                    style={{ backgroundColor: "#555555", margin: "1%", boxShadow: "5px 5px 3px rgba(46, 46, 46, 0.62)" }} >
+                    style={{ backgroundColor: "#555555", margin: "0.5%", width:"90px" }} >
                 
                     Reset
                 </Button>
             </Form>
+       
+            <a href="/ById">Have a person ID?</a>
+            
             <Container className="mt-5">
+
                 {found}
 
                 <Row xs={1} md={2} className="g-4">
