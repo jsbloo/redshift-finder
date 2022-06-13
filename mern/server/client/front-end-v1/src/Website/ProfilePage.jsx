@@ -11,7 +11,7 @@ const ProfilePage = () => {
             <br />
             <br />
             <a href="/ById">Have a person ID?</a>
-        </>
+        </div>
     );
 };
 

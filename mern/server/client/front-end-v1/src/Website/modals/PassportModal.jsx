@@ -14,9 +14,9 @@ const PassportModal = ({id}) => {
     
 
     const getPassport = async () => {
-        const citizenID = await axios.get(`http://18.133.138.52:3002/person2citizen/getById/${id}`);
-        const passportID = await axios.get(`http://18.133.138.52:3002/citizen2passport/getById/${citizenID.data.citizenId}`);
-        const passport = await axios.get(`http://18.133.138.52:3002/passport/getById/${passportID.data.passportId}`);
+        const citizenID = await axios.get(`http://localhost:3002/person2citizen/getById/${id}`);
+        const passportID = await axios.get(`http://localhost:3002/citizen2passport/getById/${citizenID.data.citizenId}`);
+        const passport = await axios.get(`http://localhost:3002/passport/getById/${passportID.data.passportId}`);
         setPassportData(passport.data);
         handleShow();
     }
