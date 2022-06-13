@@ -22,7 +22,7 @@ const BankAccountModal = ({id}) => {
 
     return ( 
         <>
-            <Button variant="primary" onClick={getAccount}>
+            <Button className="m-1 w-30" variant="primary" onClick={getAccount}>
                 Bank
             </Button>
 

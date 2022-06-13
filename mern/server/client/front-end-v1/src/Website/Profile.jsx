@@ -52,7 +52,7 @@ const Profile = ({ person, randomPerson }) => {
                             </ListGroup.Item>
                             <ListGroup.Item>
                                 <strong>Date of Birth:</strong>{" "}
-                                {person.dob.substring(0, 9)}
+                                {person.dob.substring(0, 10)}
                             </ListGroup.Item>
                             <ListGroup.Item>
                                 <strong>Surname:</strong> {person.lastName}

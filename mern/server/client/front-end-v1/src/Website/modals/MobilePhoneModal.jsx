@@ -21,7 +21,7 @@ const MobilePhoneModal = ({id}) => {
 
     return ( 
         <>
-            <Button variant="primary" onClick={getMobile}>
+            <Button className="m-1 w-30" variant="primary" onClick={getMobile}>
                 Mobile
             </Button>
 
