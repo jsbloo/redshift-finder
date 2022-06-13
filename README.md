@@ -16,7 +16,7 @@ MIRO-BOARD : https://miro.com/app/board/uXjVOwnjazE=/#tpicker-content
 
   - http://localhost:3002/persons/getByFull/Timothy%20Glenn/Owen/LONDON/1954
   - These parameters are optional: birthYear is just a regex check, to see if number is contained within dateOfBirth. Can be birthDay as well like: ``` 1954-10-08 ```
-  - 
+  
    
    
    <h3>How to run tests</h3>
