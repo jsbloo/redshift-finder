@@ -3,7 +3,7 @@ const app = express();
 const mongoose = require('mongoose');
 const cors = require('cors');
 
-const URI = 'mongodb://ihavenoclue:noreallynotone@docdb-2022-05-31-18-46-43.cluster-cnyrbefiq91q.eu-west-2.docdb.amazonaws.com:27017/redshift?ssl=true&tlsCAFile=rds-combined-ca-bundle.pem&replicaSet=rs0&readPreference=secondaryPreferred&retryWrites=false'
+const URI = 'mongodb+srv://admin:2gjPbKkGq6CE3ka@redshift-db.doa1vwz.mongodb.net/world?retryWrites=true&w=majority';
 
 mongoose.connect(URI, {
     useNewUrlParser: true
