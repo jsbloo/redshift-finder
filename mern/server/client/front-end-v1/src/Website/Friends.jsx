@@ -5,7 +5,7 @@ const Friends = () => {
     return ( 
         <>
             <br />
-            <h2>Find A Person</h2>
+            <h2 id="titleFont">Find A Person</h2>
             <br />
             <br />
             <FriendSearch></FriendSearch>
