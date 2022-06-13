@@ -2,7 +2,6 @@ import { Col, Row, Form, Button, Container } from "react-bootstrap";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import Profile from "./Profile";
-import { set } from "mongoose";
 
 const FriendSearch = () => {
     const [profileList, setProfileList] = useState("");
