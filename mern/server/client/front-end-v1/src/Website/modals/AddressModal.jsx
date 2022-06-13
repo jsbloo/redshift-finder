@@ -14,8 +14,8 @@ const AddressModal = ({id}) => {
     
 
     const getAddress = async () => {
-        const addressID = await axios.get(`http://18.133.138.52:3002/person2address/getById/${id}`);
-        const address = await axios.get(`http://18.133.138.52:3002/address/getById/${addressID.data.addressId}`);
+        const addressID = await axios.get(`http://3.10.113.211:3002/person2address/getById/${id}`);
+        const address = await axios.get(`http://3.10.113.211:3002/address/getById/${addressID.data.addressId}`);
         setAddressData(address.data);
         handleShow();
     }

@@ -37,7 +37,7 @@ const Search = () => {
         }
 
         var APICallString =
-            "http://18.133.138.52:3002/persons/getByFull/" +
+            "http://3.10.113.211:3002/persons/getByFull/" +
             searchTxt +
             "/" +
             searchTxt1 +
