@@ -7,14 +7,16 @@ MIRO-BOARD : https://miro.com/app/board/uXjVOwnjazE=/#tpicker-content
  - http://localhost:3002/address/getById/{addressId}
  - http://localhost:3002/mobilePhone/getById/{id}
  - http://localhost:3002/passport/getById/{passportNumber}
+ - http://localhost:3002/bankaccount/getById/{bankAccountid}
+ - http://localhost:3002/friends/getById/{personId}
+ - http://localhost:3002/partner/getById/{personId}
 
 
  <h3>Get by givenNames/surname/birthPlace/birthYear</h3>
 
   - http://localhost:3002/persons/getByFull/Timothy%20Glenn/Owen/LONDON/1954
-
-   birthPlace is stored in capitals in db, there is no type checking in api do this in front end please,
-   birthYear is just a regex check, to see if number is contained within dateOfBirth. Can be birthDay as well like: ``` 1954-10-08 ```
+  - These parameters are optional: birthYear is just a regex check, to see if number is contained within dateOfBirth. Can be birthDay as well like: ``` 1954-10-08 ```
+  - 
    
    
    <h3>How to run tests</h3>

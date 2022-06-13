@@ -1,4 +1,4 @@
-import { Navbar, Container, Nav, NavDropdown } from "react-bootstrap";
+import { Navbar, Container, Nav } from "react-bootstrap";
 
 const Navigation = () => {
     return (
@@ -15,16 +15,11 @@ const Navigation = () => {
                     />
                     <Nav className="me-auto">
                         <Nav.Link href="/">Home</Nav.Link>
-                        <Nav.Link href="/Features">Features</Nav.Link>
+                        <Nav.Link href="/Friends">Friends</Nav.Link>
                         <Nav.Link href="/About"> About</Nav.Link>
                     </Nav>
                 </Container>
             </Navbar>
-            {/* <BrowserRouter>
-            <Routes>      
-                <Route path="/About" element={<About />} />
-            </Routes>
-            </BrowserRouter> */}
         </>
     );
 };
