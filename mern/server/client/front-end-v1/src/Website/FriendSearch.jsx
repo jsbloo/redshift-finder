@@ -2,12 +2,14 @@ import { Col, Row, Form, Button, Container } from "react-bootstrap";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import Profile from "./Profile";
+import { set } from "mongoose";
 
 const FriendSearch = () => {
     const [profileList, setProfileList] = useState("");
     const [loaded, setLoaded] = useState(false);
     const [id, setId] = useState("");
     const [deactivate, setDeactivate] = useState(false);
+    const [visible, setVisible] = useState("hidden");
 
     const rpImg = "http://xsgames.co/randomusers/assets/avatars/";
     const APICallString = "http://localhost:3002/friends/getById/";
@@ -42,8 +44,11 @@ const FriendSearch = () => {
             .catch((error) => {
                 errMsg = error.message;
                 console.log(error);
-            });
+            })
+            .finally(setDeactivate(true)
+            ); 
 
+        setVisible("visible");
         setLoaded(true);
     };
 
@@ -65,7 +70,7 @@ const FriendSearch = () => {
                     </Form.Group>
                 </Row>
                 <Button className="p-2 border" disabled={deactivate}
-                    onClick={() => { getFriends(); setDeactivate(true) }}
+                    onClick={() => { getFriends();}}
                     style={{ backgroundColor: "#FFEA00", color: "black", margin: "1%", width:"100px"}}
                 >
                     Stage
@@ -87,10 +92,10 @@ const FriendSearch = () => {
                 </Button>
             </Form>
             <br></br>
-            <h3 id="titleFont">Friends of : {id}</h3>
+            <h3 id="titleFont" style={{visibility: visible}}>Friends of : {id}</h3>
             <Container className="mt-5">
-                <Row xs={1} md={2} className="g-4">
-                    {profileList ? (
+                <Row xs={1} md={2} className="g-4" id="centRow">
+                    {profileList && loaded ? (
                         profileList.map((p) => {
                             return (
                                 <Profile
@@ -102,7 +107,7 @@ const FriendSearch = () => {
                             );
                         })
                     ) : (
-                        <h3 id="titleFont" className="noDataYet">No data yet</h3>
+                        <h3 id="titleFont">No data yet</h3>
                     )}
                 </Row>
             </Container>

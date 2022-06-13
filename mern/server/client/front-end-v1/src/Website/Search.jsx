@@ -12,7 +12,7 @@ const Search = () => {
     const personNotFoundElement = (
         <div>
             <br />
-            <h1>People Not Found</h1>
+            <h1>No people found</h1>
         </div>
     );
 
@@ -131,8 +131,8 @@ const Search = () => {
 
                 {found}
 
-                <Row xs={1} md={2} className="g-4">
-                    {profileList ? (
+                <Row xs={1} md={2} className="g-4" id="centRow">
+                    {profileList && loaded ? (
                         profileList.map((p) => {
                             return (
                                 <Profile
@@ -144,7 +144,7 @@ const Search = () => {
                             );
                         })
                     ) : (
-                        <h3>No data yet</h3>
+                        <h3 id="titleFont">No data yet</h3>
                     )}
                 </Row>
             </Container>
