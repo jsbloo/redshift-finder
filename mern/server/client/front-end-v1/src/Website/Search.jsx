@@ -37,8 +37,7 @@ const Search = () => {
         }
 
         var APICallString =
-            "http://localhost:3002/persons" +
-            "/getByFull/" +
+            "http://18.133.138.52:3002/persons/getByFull/" +
             searchTxt +
             "/" +
             searchTxt1 +

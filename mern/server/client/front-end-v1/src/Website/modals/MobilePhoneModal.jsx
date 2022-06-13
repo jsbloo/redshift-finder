@@ -14,7 +14,7 @@ const MobilePhoneModal = ({id}) => {
     
 
     const getMobile = async () => {
-        const mobile = await axios.get(`http://localhost:3002/mobilePhone/getById/${id}`);
+        const mobile = await axios.get(`http://18.133.138.52:3002/mobilePhone/getById/${id}`);
         setMobileData(mobile.data);
         handleShow();
     }
