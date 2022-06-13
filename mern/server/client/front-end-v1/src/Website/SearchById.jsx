@@ -8,6 +8,8 @@ const Search = () => {
     const [loaded, setLoaded] = useState(false);
     const [found, setFound] = useState(false);
 
+    let searchTxt = "";
+
     const personNotFoundElement = (
         <div>
             <br />
@@ -15,41 +17,17 @@ const Search = () => {
         </div>
     );
 
-    let searchTxt = "none";
-    let searchTxt1 = "none";
-    let searchTxt2 = "none";
-    let searchTxt3 = "none";
-
     const rpImg = "http://xsgames.co/randomusers/assets/avatars/";
 
-    const getPeople = async () => {
-        if (searchTxt == "") {
-            searchTxt = "none";
-        }
-        if (searchTxt1 == "") {
-            searchTxt1 = "none";
-        }
-        if (searchTxt2 == "") {
-            searchTxt2 = "none";
-        }
-        if (searchTxt3 == "") {
-            searchTxt3 = "none";
-        }
+    const getPerson = async () => {
 
         var APICallString =
             "http://localhost:3002/persons" +
-            "/getByFull/" +
-            searchTxt +
-            "/" +
-            searchTxt1 +
-            "/" +
-            searchTxt2 +
-            "/" +
-            searchTxt3;
+            "/getById/" + searchTxt;
         await axios
             .get(APICallString)
             .then((response) => {
-                setProfileList(response.data);
+                setProfileList([response.data]);
                 setFound("");
             })
             .catch((error) => {
@@ -67,46 +45,17 @@ const Search = () => {
     return (
         <>
             <Form>
-                <Row className="mb-3">
+                <Row className="mb-3 m-5">
                     <Form.Group as={Col}>
-                        <Form.Label>Given Name</Form.Label>
+                        <Form.Label>Person ID</Form.Label>
                         <Form.Control
                             type="text"
-                            placeholder="Enter Given Name"
+                            placeholder="Enter ID"
                             onChange={(e) => (searchTxt = e.target.value)}
                         />
                     </Form.Group>
-
-                    <Form.Group as={Col}>
-                        <Form.Label>Last Name</Form.Label>
-                        <Form.Control
-                            type="text"
-                            placeholder="Enter Last Name"
-                            onChange={(e) => (searchTxt1 = e.target.value)}
-                        />
-                    </Form.Group>
-
-                    <Form.Group as={Col}>
-                        <Form.Label>Place Of Birth</Form.Label>
-                        <Form.Control
-                            type="text"
-                            placeholder="Enter City"
-                            onChange={(e) =>
-                                (searchTxt2 = e.target.value.toUpperCase())
-                            }
-                        />
-                    </Form.Group>
-
-                    <Form.Group as={Col}>
-                        <Form.Label>Date Of Birth</Form.Label>
-                        <Form.Control
-                            type="text"
-                            placeholder="Enter D.O.B"
-                            onChange={(e) => (searchTxt3 = e.target.value)}
-                        />
-                    </Form.Group>
                 </Row>
-                <Button className="p-2 border" onClick={() => getPeople()}>
+                <Button className="p-2 border" onClick={() => getPerson()}>
                     Search
                 </Button>
                 <Button
