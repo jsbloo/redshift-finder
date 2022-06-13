@@ -37,8 +37,7 @@ const Search = () => {
         }
 
         var APICallString =
-            "http://localhost:3002/persons" +
-            "/getByFull/" +
+            "http://18.133.138.52:3002/persons/getByFull/" +
             searchTxt +
             "/" +
             searchTxt1 +
@@ -49,6 +48,7 @@ const Search = () => {
         await axios
             .get(APICallString)
             .then((response) => {
+                console.log(APICallString)
                 setProfileList(response.data);
                 setFound("");
             })
@@ -69,7 +69,7 @@ const Search = () => {
             <Form>
                 <Row className="mb-3">
                     <Form.Group as={Col}>
-                        <Form.Label>Given Name</Form.Label>
+                        <Form.Label id="titleFont">Given Name</Form.Label>
                         <Form.Control
                             type="text"
                             placeholder="Enter Given Name"
@@ -78,7 +78,7 @@ const Search = () => {
                     </Form.Group>
 
                     <Form.Group as={Col}>
-                        <Form.Label>Last Name</Form.Label>
+                        <Form.Label id="titleFont" >Last Name</Form.Label>
                         <Form.Control
                             type="text"
                             placeholder="Enter Last Name"
@@ -87,7 +87,7 @@ const Search = () => {
                     </Form.Group>
 
                     <Form.Group as={Col}>
-                        <Form.Label>Place Of Birth</Form.Label>
+                        <Form.Label id="titleFont" >Place Of Birth</Form.Label>
                         <Form.Control
                             type="text"
                             placeholder="Enter City"
@@ -98,7 +98,7 @@ const Search = () => {
                     </Form.Group>
 
                     <Form.Group as={Col}>
-                        <Form.Label>Date Of Birth</Form.Label>
+                        <Form.Label id="titleFont" >Date Of Birth</Form.Label>
                         <Form.Control
                             type="text"
                             placeholder="Enter D.O.B"
@@ -106,7 +106,9 @@ const Search = () => {
                         />
                     </Form.Group>
                 </Row>
-                <Button className="p-2 border" onClick={() => getPeople()}>
+                <Button className="p-2 border"
+                    onClick={() => getPeople()}
+                    style={{ backgroundColor: "#555555", margin: "1%", boxShadow: "5px 5px 3px rgba(46, 46, 46, 0.62)" }} >
                     Search
                 </Button>
                 <Button
@@ -114,7 +116,8 @@ const Search = () => {
                     onClick={() => {
                         reset();
                     }}
-                >
+                    style={{ backgroundColor: "#555555", margin: "1%", boxShadow: "5px 5px 3px rgba(46, 46, 46, 0.62)" }} >
+                
                     Reset
                 </Button>
             </Form>
