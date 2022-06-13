@@ -10,7 +10,8 @@ const ProfilePage = () => {
             <Search schema={"persons"}/>
             <br />
             <br />
-        </div>
+            <a href="/ById">Have a person ID?</a>
+        </>
     );
 };
 

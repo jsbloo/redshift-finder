@@ -61,12 +61,6 @@ const Search = () => {
     };
 
     const reset = () => {
-        // setProfileList([]); //this is smarter way to reset
-        // searchTxt = "none";
-        // searchTxt1 = "none";
-        // searchTxt2 = "none";
-        // searchTxt3 = "none";
-
         window.location.reload();
     };
 
