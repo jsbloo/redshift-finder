@@ -70,7 +70,7 @@ const FriendSearch = () => {
                 >
                     Stage
                 </Button>
-                <Button className="p-2 border btn btn-success"
+                <Button className="p-2 border " disabled={!deactivate}
                     onClick={() => { setId(id + " "); setDeactivate(false) }}
                     style={{ backgroundColor: "#50C878", color: "black", margin: "1%", width:"100px"}}
                 >
