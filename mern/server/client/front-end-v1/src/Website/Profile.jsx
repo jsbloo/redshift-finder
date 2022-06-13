@@ -52,7 +52,7 @@ const Profile = ({ person, randomPerson }) => {
                             </ListGroup.Item>
                             <ListGroup.Item>
                                 <strong>Date of Birth:</strong>{" "}
-                                {person.dob.substring(0, 9)}
+                                {person.dob.substring(0, 10)}
                             </ListGroup.Item>
                             <ListGroup.Item>
                                 <strong>Surname:</strong> {person.lastName}
@@ -76,7 +76,7 @@ const Profile = ({ person, randomPerson }) => {
                                 {person.nationality}
                             </ListGroup.Item>
                             <ListGroup.Item>
-                                <strong>Partner:</strong> {partner}
+                                <strong>Partner ID:</strong> {partner}
                             </ListGroup.Item>
                         </ListGroup>
                     </Card.Text>

@@ -4,7 +4,7 @@ const About = () => {
     return (
         <div id="aboutBackground">
             <Container>
-
+                <br></br>
                 <div class="preloader">
                     <div class="sk-rotating-plane"></div>
                 </div>

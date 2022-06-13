@@ -17,6 +17,9 @@ const getPassportById = async (req,res,next) => {
         return res.status(500).json({ message: e.message});
     }
 
+    passport.dateOfIssue = passport.dateOfIssue.substring(0,10);
+    passport.dateOfExpiry = passport.dateOfIssue.substring(0,10);
+
     res.passport = passport;
     next();
 }

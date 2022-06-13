@@ -12,7 +12,6 @@ const BankAccountModal = ({id}) => {
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
     
-
     const getAccount = async () => {
         const accountID = await axios.get(`http://localhost:3002/person2bankaccount/getById/${id}`);
         console.log(accountID.data);
@@ -23,7 +22,7 @@ const BankAccountModal = ({id}) => {
 
     return ( 
         <>
-            <Button variant="primary" onClick={getAccount}>
+            <Button className="m-1 w-30" variant="primary" onClick={getAccount}>
                 Bank
             </Button>
 

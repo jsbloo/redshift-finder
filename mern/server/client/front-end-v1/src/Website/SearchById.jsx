@@ -44,8 +44,9 @@ const Search = () => {
 
     return (
         <>
+        <br></br>
             <Form>
-                <Row className="mb-3 m-5">
+                <Row className="mb-3 m-5 col-md-3 m-auto">
                     <Form.Group as={Col}>
                         <Form.Label>Person ID</Form.Label>
                         <Form.Control

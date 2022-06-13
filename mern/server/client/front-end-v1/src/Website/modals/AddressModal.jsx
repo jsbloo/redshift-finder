@@ -22,7 +22,7 @@ const AddressModal = ({id}) => {
 
     return ( 
         <>
-            <Button variant="primary" onClick={getAddress}>
+            <Button className="m-1 w-30"  variant="primary" onClick={getAddress}>
                 Address
             </Button>
 
