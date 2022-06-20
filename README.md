@@ -1,3 +1,6 @@
+The MongoDB database has been deleted, so no longer functional 
+
+
 MIRO-BOARD : https://miro.com/app/board/uXjVOwnjazE=/#tpicker-content
 
 <h1>Requests</>
@@ -14,7 +17,7 @@ MIRO-BOARD : https://miro.com/app/board/uXjVOwnjazE=/#tpicker-content
 
  <h3>Get by givenNames/surname/birthPlace/birthYear</h3>
 
-  - http://localhost:3002/persons/getByFull/Timothy%20Glenn/Owen/LONDON/1954
+  - http://localhost:3002/persons/getByFull/givenNames/Surname/PoB/DoB
   - These parameters are optional: birthYear is just a regex check, to see if number is contained within dateOfBirth. Can be birthDay as well like: ``` 1954-10-08 ```
   
    
