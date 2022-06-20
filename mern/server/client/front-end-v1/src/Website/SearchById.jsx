@@ -70,12 +70,12 @@ const Search = () => {
             </Form>
             <Container className="mt-5">
                 {found}
-
-                <Row xs={1} md={2} className="g-4">
-                    {profileList ? (
+                <Row xs={1} md={2} className="g-4" 
+                id="centRow">
+                    {loaded ? (
                         profileList.map((p) => {
                             return (
-                                <Profile
+                                <Profile 
                                     person={p}
                                     randomPerson={rpImg}
                                     className="data"
@@ -84,7 +84,7 @@ const Search = () => {
                             );
                         })
                     ) : (
-                        <h3>No data yet</h3>
+                        <h3 id="titleFont">No data yet</h3>
                     )}
                 </Row>
             </Container>

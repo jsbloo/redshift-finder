@@ -47,6 +47,10 @@
    top :173px
  }
 
+ #centRow{
+  justify-content: center;
+ }
+
 .btn1 {
   position: flex;
   justify-content: space-between;
@@ -67,5 +71,7 @@
 .firstnames {
   border-style: double;
 }
+
+
 
 /* ff */
